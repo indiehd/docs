@@ -34,12 +34,12 @@ When using the name of the organization, make sure it is one of the following:
     [footer]
     ```
     
-* Optional:    
+* Optional (anything inside `[...]`):    
     * `(scope)`
     * `body`
     * `footer`
     
-* Examples:
+* Common Examples:
     * `build: Add node_modules to gitignore`
     * `chore(gitignore): Add node_modules`
     * `fix: Fix for issue #12`
@@ -48,19 +48,19 @@ When using the name of the organization, make sure it is one of the following:
  
 * Accepted types:
 
-    * `wip:`    *Related to WIP commits*
-    * `build:`  *Related to Build or Environment*
-    * `chore:`  *Also Accepted for Build or Environment*
-    * `ci:`     *Related to TravisCI*
-    * `docs:`   *Related to Documentation*
-    * `feat:`   *Related to Features*
-    * `fix:`    *Related to Bug or Issue Fixes*
-    * `perf:`   *Related to Performance*
-    * `refact:` *Related to Refactoring or moving code around*
-    * `revert:` *Related to reverting a previous commit (this is discouraged)*
-    * `style:`  *Related to Coding Style or Linting (not to be confused with `ui` styles)*
-    * `tests:`  *Related to tests*
-    * `ui:`     *Related to UI (Web/Interface)*
+    * `wip:`    *Related to **WIP** commits*
+    * `build:`  *Related to **Build or Environment***
+    * `chore:`  *Also Accepted for **Build or Environment***
+    * `ci:`     *Related to **Coding Continuous Integration** e.g. TravisCI*
+    * `docs:`   *Related to **Documentation***
+    * `feat:`   *Related to **Features***
+    * `fix:`    *Related to **Bug or Issue Fixes***
+    * `perf:`   *Related to **Performance***
+    * `refact:` *Related to **Refactoring** or moving code around*
+    * `revert:` *Related to **reverting** a previous commit **(this is discouraged)***
+    * `style:`  *Related to **Coding Style or Linting** (not to be confused with `ui` styles)*
+    * `tests:`  *Related to **Tests***
+    * `ui:`     *Related to **UI (Web/Interface)***
 
 ### JavaScript Styleguide
 
