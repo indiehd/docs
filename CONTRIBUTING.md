@@ -47,7 +47,7 @@ When using the name of the organization, make sure it is one of the following:
 
     * `wip:`    *Related to WIP commits*
     * `build:`  *Related to Build or Environment*
-    * `chore:`  *Also Accepted for Build or Environment*
+    * `chore:`  *Related to Adding/Removing or Boilerplating/Scaffolding*
     * `ci:`     *Related to TravisCI*
     * `docs:`   *Related to Documentation*
     * `feat:`   *Related to Features*
