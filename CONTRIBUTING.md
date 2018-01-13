@@ -61,6 +61,7 @@ When using the name of the organization, make sure it is one of the following:
     * `style:`  *Related to **Coding Style or Linting** (not to be confused with `ui` styles)*
     * `tests:`  *Related to **Tests***
     * `ui:`     *Related to **UI (Web/Interface)***
+    * `scaff:`   *Realted to adding **Scaffolding or Boilerplate***
 
 ### JavaScript Styleguide
 
