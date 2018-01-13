@@ -27,7 +27,7 @@ When using the name of the organization, make sure it is one of the following:
 
 * Commit conventions follow this pattern:
     ```bash
-    type[(scope)]: message
+    type[(scope)]: subject
     [body]
     [footer]
     ```
