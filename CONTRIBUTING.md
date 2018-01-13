@@ -26,11 +26,14 @@ When using the name of the organization, make sure it is one of the following:
 * Reference issues and pull requests liberally after the first line
 
 * Commit conventions follow this pattern:
-    ```bash
+    ```
     type[(scope)]: subject
+    <BLANK LINE>
     [body]
+    <BLANK LINE>
     [footer]
     ```
+    
 * Optional:    
     * `(scope)`
     * `body`
