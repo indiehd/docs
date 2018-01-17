@@ -48,6 +48,7 @@ When using the name of the organization, make sure it is one of the following:
  
 * Accepted types:
 
+    * `api:`    *Related to **API** commits*
     * `wip:`    *Related to **WIP** commits*
     * `build:`  *Related to **Build or Environment***
     * `chore:`  *Also Accepted for **Build or Environment***
