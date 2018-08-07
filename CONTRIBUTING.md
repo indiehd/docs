@@ -13,7 +13,7 @@ The following is a set of rules for contributing to IndieHD and its packages, wh
 ## Organization name
 
 When using the name of the organization, make sure it is one of the following:
-  * `IndieHD`, `Indie HD`, `IndieHD.com` => generally acceptable
+  * `indieHD`, `Indie HD`, `indiehd.com` => generally acceptable (along with other variants)
   * `INDIE HD, LLC` => required in every legal context (such as in copyright notices)
 
 ## Styleguides
