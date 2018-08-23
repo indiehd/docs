@@ -1,23 +1,16 @@
-# Contributing to IndieHD
+## Styleguides (GrumPHP)
+[Home](https://github.com/indiehd/docs/blob/master/README.md) / [Contributing](https://github.com/indiehd/docs/blob/master/Contributing/index.md)
 
-The following is a set of rules for contributing to IndieHD and its packages, which are hosted in the [IndieHD Organization](https://github.com/indiehd) on GitHub. These rules are considered when approving submitted contributions. Feel free to propose changes to this document in a pull request.
+### PHP Styleguide (PSR2)
+[Back To Top](#styleguides)
 
-#### Table Of Contents
+All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards!
 
-[Organization name](#organization-name)
+### JavaScript Styleguide (ESLINT)
+[Back To Top](#styleguides)
 
-[Styleguides](#styleguides)
-  * [Git Commit Messages](#git-commit-messages)
-  * [JavaScript Styleguide](#javascript-styleguide)
-
-## Organization name
-
-When using the name of the organization, make sure it is one of the following:
-  * `indieHD`, `Indie HD`, `indiehd.com` => generally acceptable (along with other variants)
-  * `INDIE HD, LLC` => required in every legal context (such as in copyright notices)
-
-## Styleguides
-[Back To Top](#table-of-contents)
+* All JavaScript must adhere to [JavaScript Airbnb Style](https://github.com/airbnb/javascript/)
+* Additional custom rules are defined in the [.eslintrc.js file](https://github.com/indiehd/website-ui/blob/master/.eslintrc.js)
 
 ### Git Commit Messages
 
@@ -96,9 +89,3 @@ When using the name of the organization, make sure it is one of the following:
     * `tests:`  *Related to **Tests***
     * `ui:`     *Related to **UI or UX** design or markup*
     * `scaff:`  *Related to **Scaffolding or Boilerplate***
-
-### JavaScript Styleguide
-[Back To Top](#table-of-contents)
-
-All JavaScript must adhere to [JavaScript Airbnb Style](https://github.com/airbnb/javascript/), 
-including additional custom rules, which are defined in the `rules` object in the [.eslintrc.js file](https://github.com/indiehd/website-ui/blob/master/.eslintrc.js).

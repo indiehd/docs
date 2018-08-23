@@ -11,4 +11,4 @@ INDIE HD, LLC (and team)
  
 ## Table Of Contents
 
-1. [Contributing (Rules for contributing to our repositories)](https://github.com/indiehd/docs/blob/master/CONTRIBUTING.md)
+1. [Contributing Rules](https://github.com/indiehd/docs/blob/master/Contributing/index.md)
