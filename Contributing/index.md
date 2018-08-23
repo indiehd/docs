@@ -7,6 +7,6 @@ The following is a set of rules for contributing to IndieHD and its packages, wh
 [Organization](https://github.com/indiehd/docs/blob/master/Contributing/organization.md)
 
 [Styleguides](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md)
-  * [PHP Styleguide](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#php-styleguide)
-  * [JavaScript Styleguide](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#javascript-styleguide)
+  * [PHP Styleguide](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#php-styleguide-psr2)
+  * [JavaScript Styleguide](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#javascript-styleguide-eslint)
   * [Git Commit Messages](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#git-commit-messages)

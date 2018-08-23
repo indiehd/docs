@@ -2,15 +2,15 @@
 [Home](https://github.com/indiehd/docs/blob/master/README.md) / [Contributing](https://github.com/indiehd/docs/blob/master/Contributing/index.md)
 
 ### PHP Styleguide (PSR2)
-[Back To Top](#styleguides)
 
 All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards!
 
 ### JavaScript Styleguide (ESLINT)
-[Back To Top](#styleguides)
 
 * All JavaScript must adhere to [JavaScript Airbnb Style](https://github.com/airbnb/javascript/)
 * Additional custom rules are defined in the [.eslintrc.js file](https://github.com/indiehd/website-ui/blob/master/.eslintrc.js)
+
+[Back To Top](#styleguides-grumphp)
 
 ### Git Commit Messages
 
@@ -89,3 +89,5 @@ All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards
     * `tests:`  *Related to **Tests***
     * `ui:`     *Related to **UI or UX** design or markup*
     * `scaff:`  *Related to **Scaffolding or Boilerplate***
+    
+[Back To Top](#styleguides-grumphp)    
