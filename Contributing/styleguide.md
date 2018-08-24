@@ -10,8 +10,6 @@ All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards
 * All JavaScript must adhere to [JavaScript Airbnb Style](https://github.com/airbnb/javascript/)
 * Additional custom rules are defined in the [.eslintrc.js file](https://github.com/indiehd/website-ui/blob/master/.eslintrc.js)
 
-[Back To Top](#styleguides-grumphp)
-
 ### Git Commit Messages
 
 * Use the present tense ("Add feature" not "Added feature")
