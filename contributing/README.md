@@ -4,14 +4,14 @@ The following is a set of rules for contributing to IndieHD and its packages, wh
 
 #### Table Of Contents
 
-* [Organization](https://github.com/indiehd/docs/blob/master/Contributing/organization.md)
+* [Organization](contributing/organization.md)
 * [Code Of Conduct]()
 * [Licensing]()
 
-* [Styleguides](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md)
-    * [PHP (PSR2)](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#php-styleguide-psr2)
-    * [JavaScript (Airbnb)](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#javascript-styleguide-eslint)
-    * [Git Commit Message](https://github.com/indiehd/docs/blob/master/Contributing/styleguide.md#git-commit-messages)
+* [Styleguides](contributing/styleguide.md)
+    * [PHP (PSR2)](contributing/styleguide.md#php-styleguide-psr2)
+    * [JavaScript (Airbnb)](contributing/styleguide.md#javascript-styleguide-eslint)
+    * [Git Commit Message](contributing/styleguide.md#git-commit-messages)
   
 * [Where Do I Start ?]()
     * [Joining The Community]()
