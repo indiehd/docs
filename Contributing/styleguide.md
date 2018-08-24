@@ -1,5 +1,5 @@
 ## Styleguides (GrumPHP)
-[Home](https://github.com/indiehd/docs/blob/master/README.md) / [Contributing](https://github.com/indiehd/docs/blob/master/Contributing/index.md)
+[Home](../README.md) / [Contributing](README.md)
 
 ### PHP Styleguide (PSR2)
 
