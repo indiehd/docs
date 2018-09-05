@@ -1,5 +1,4 @@
 ## Organization name
-[Home](../README.md) / [Contributing](contributing/index.md)
 
 When using the name of the organization, make sure it is one of the following:
   * `indieHD`, `Indie HD`, `indiehd.com` => generally acceptable (along with other variants)

@@ -1,5 +1,4 @@
 ## Styleguides (GrumPHP)
-[Home](../README.md) / [Contributing](README.md)
 
 ### PHP Styleguide (PSR2)
 
