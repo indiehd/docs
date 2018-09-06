@@ -72,6 +72,100 @@ If an application ***DOES NOT*** follow the Repository Pattern, it may have the 
  * It’s easy to implement domain logic
  * Your domain entities or business entities are strongly typed with annotations and more
 
+## Coding to an Interface
+[Source](https://codeinphp.github.io/post/coding-to-interface/)
+
+One of the nicest things you can add to your programming skills is coding to interface. 
+One of the five principles of 
+[S.O.L.I.D](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29) is 
+[Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) 
+which states:
+
+    In object-oriented programming, the dependency inversion principle refers to a specific form of 
+    decoupling software modules. When following this principle, the conventional dependency 
+    relationships established from high-level, policy-setting modules to low-level, dependency 
+    modules are reversed, thus rendering high-level modules independent of the low-level module 
+    implementation details. The principle states:
+
+        A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+        B. Abstractions should not depend on details. Details should depend on abstractions.
+
+#### Example
+The Interface (aka Contract)
+```php
+interface DB
+{
+    public function connect($dsn, $user = '', $pass = '');
+    public function query($query);
+}
+```
+
+Here is `Mysql` class now implementing `DB`:
+```php
+class Mysql implements DB
+{
+    protected $db = null;
+
+    public function connect($dsn, $user = '', $pass = '')
+    {
+        $this->db = new PDO($dsn, $user, $pass);
+    }
+
+    public function query($query)
+    {
+        return $this->db->query($query);
+    }
+}
+```
+
+Another database class implementing `DB`:
+```php
+class Sqlite implements DB
+{
+    ...
+}
+```
+
+As you can see both `Mysql` and `Sqlite` implement methods imposed by `DB`. 
+
+Finally here is our `User` class:
+```php
+class User
+{
+    private $database = null;
+
+    public function __construct(DB $database)
+    {
+        $this->database = $database;
+    }
+
+    public function getUsers()
+    {
+        $users = $this->database->query('SELECT * FROM users ORDER BY id DESC');
+        ...
+    }
+}
+```
+Notice that in constructor of above class, we are now passing `interface` rather than specific type of 
+database.
+
+Now we can use any database for the `User` class, here is example of `Mysql`:
+```php
+$database = new Mysql();
+$database->connect('mysql:host=localhost;dbname=test', 'root', '');
+$user = new User($database);
+$user->getUsers();
+```
+
+And example of `Sqlite` database class:
+```php
+$database = new Sqlite();
+$database->connect('sqlite:database.sqlite');
+$user = new User($database);
+$user->getUsers();
+```
+
 ## Airbnb Coding Style
 
 Airbnb has one of the most popular JavaScript style guides on the internet. It covers nearly every 
