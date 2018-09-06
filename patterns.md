@@ -4,39 +4,9 @@ coding styles. This not only helps with the overall quality and integrity of you
 also helps with your (and other contributors) work flows by keeping everyone organized and on the
 same page about whats expected.
 
-**Design Patterns** [Source](https://en.wikipedia.org/wiki/Software_design_pattern#Practice)
-```
-Design patterns can speed up the development process by providing tested, proven development 
-paradigms. Effective software design requires considering issues that may not become visible 
-until later in the implementation. Freshly written code can often have hidden subtle issues that 
-take time to be detected, issues that sometimes can cause major problems down the road. Reusing 
-design patterns helps to prevent such subtle issues, and it also improves code 
-readability for coders and architects who are familiar with the patterns.
+**Design Patterns** [Wiki](https://en.wikipedia.org/wiki/Software_design_pattern#Practice)
 
-In order to achieve flexibility, design patterns usually introduce additional levels of indirection, 
-which in some cases may complicate the resulting designs and hurt application performance.
-
-...
-```
-
-**Coding Standards** [Source](https://en.wikipedia.org/wiki/Coding_conventions#Software_maintenance)
-```
-...
-
-Code conventions are important to programmers for a number of reasons:
-
- - 40%–80% of the lifetime cost of a piece of software goes to maintenance.
- 
- - Hardly any software is maintained for its whole life by the original author.
- 
- - Code conventions improve the readability of the software, allowing engineers to understand new 
- code more quickly and thoroughly.
-
- - If you ship your source code as a product, you need to make sure it is as well packaged and clean 
-as any other product you create.
-
-...
-```
+**Coding Standards** [Wiki](https://en.wikipedia.org/wiki/Coding_conventions#Software_maintenance)
 
 ## PHP Standards Recommendation (PSR)
 [Source](https://code.tutsplus.com/tutorials/psr-huh--net-29314)
