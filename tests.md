@@ -17,7 +17,7 @@ expected of you as a contributor.
  
  ![](images/tests_dir_structure.png)
  
- #### Whats the difference between a `Unit Test` and a `Feature Test` ?
+ #### `Unit Test` vs `Feature Test`
  
  This is the way we like to interpret it:
  
