@@ -3,10 +3,10 @@ At **IndieHD** we test all of our implementations. There are different types of 
 the repository you are working with and depending on the type of test you are performing 
 (Unit/Feature). 
 
-**Contributors**
-If you plan on contributing, you will be expected
+##### Note: Contributors
+`If you plan on contributing, you will be expected
 to provide tests for your implementations also. All tests must pass before any PR's are even
-considered!
+considered!`
 
 In this documentation we will try and explain how we specifically handle our tests and what would be
 expected of you as a contributor.
