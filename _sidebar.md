@@ -11,6 +11,10 @@
     * [Airbnb Coding Style](patterns.md#airbnb-coding-style)
     
 * [Tests](tests.md)
+    * [web-api Directory Structure](tests.md#directory-structure-web-api)
+    * [Unit vs Feature](tests.md#unit-test-vs-feature-test)
+    * [Examples](tests.md#example-of-a-feature-test)
+    
 * [Tooling](tools.md)
 
 * [Contributing](contributing/README.md)
