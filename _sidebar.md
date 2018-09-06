@@ -10,7 +10,7 @@
     * [Coding To Interface](patterns.md#coding-to-an-interface)
     * [Airbnb Coding Style](patterns.md#airbnb-coding-style)
     
-* [Tests](tests.md)
+* [Tests](tests.md#testing)
     * [web-api Directory Structure](tests.md#directory-structure-web-api)
     * [Unit vs Feature](tests.md#unit-test-vs-feature-test)
     * [Examples](tests.md#example-of-a-feature-test)
