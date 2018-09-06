@@ -4,9 +4,8 @@ the repository you are working with and depending on the type of test you are pe
 (Unit/Feature). 
 
 ##### Note: Contributors
-`If you plan on contributing, you will be expected
-to provide tests for your implementations also. All tests must pass before any PR's are even
-considered!`
+`If you plan on contributing, you will be expected to provide tests for your implementations also. 
+All tests must pass before any PR's are even considered!`
 
 In this documentation we will try and explain how we specifically handle our tests and what would be
 expected of you as a contributor.
