@@ -41,6 +41,7 @@ module.exports = {
         'tests',
         'ui',
         'scaff',
+        'assets',
       ],
     ],
   },
