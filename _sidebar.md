@@ -2,16 +2,30 @@
     * [Our History](intro/history.md)
     * [Mission Statement](intro/mission.md)
     * [About The Project](intro/about.md)
-* [Patterns We Follow](patterns.md)
+    
+* [Patterns We Follow](patterns.md#patterns-we-follow)
+    * [PHP Standards Recommendation](patterns.md#php-standards-recommendation-psr)
+    * [S.O.L.I.D](patterns.md#solid)
+    * [Repository Pattern](patterns.md#the-repository-pattern)
+    * [Coding To Interface](patterns.md#coding-to-an-interface)
+    * [Airbnb Coding Style](patterns.md#airbnb-coding-style)
+    
 * [Tests](tests.md)
 * [Tooling](tools.md)
 
 * [Contributing](contributing/README.md)
     * [Organization](contributing/organization.md)
-    * [Code Of Conduct](contributing/coc.md)
+    
+    * [Code Of Conduct](contributing/coc.md#contributor-covenant-code-of-conduct)
+        * [Our Pledge](contributing/coc.md#our-pledge)
+        * [Our Standards](contributing/coc.md#our-standards)
+        * [Our Responsibilities](contributing/coc.md#our-responsibilities)
+        * [The Scope](contributing/coc.md#the-scope)
+        * [Enforcement](contributing/coc.md#enforcement)
+        
     * [Licensing](contributing/licensing.md)
     
-    * [Styleguides](contributing/styleguide.md)
+    * [Styleguides](contributing/styleguide.md#styleguides-grumphp)
         * [PHP (PSR2)](contributing/styleguide.md#php-styleguide-psr2)
         * [JavaScript (Airbnb)](contributing/styleguide.md#javascript-styleguide-eslint)
         * [Git Commit Message](contributing/styleguide.md#git-commit-messages)
