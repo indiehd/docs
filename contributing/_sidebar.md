@@ -1,0 +1,17 @@
+* [Introduction](contributing/README.md)
+* [Cloning This Repository](contributing/cloning.md)
+* [Organization](contributing/organization.md)
+* [Community](contributing/community.md)
+    
+* [Code Of Conduct](contributing/coc.md#contributor-covenant-code-of-conduct)
+    * [Our Pledge](contributing/coc.md#our-pledge)
+    * [Our Standards](contributing/coc.md#our-standards)
+    * [Our Responsibilities](contributing/coc.md#our-responsibilities)
+    * [The Scope](contributing/coc.md#the-scope)
+    * [Enforcement](contributing/coc.md#enforcement)
+    
+* [Licensing](contributing/licensing.md)
+* [Git Commit Messages](contributing/styleguide.md#git-commit-messages)
+* [Good First Contribution](contributing/first.md)
+* [Pull Requests](contributing/pullreq.md)
+* [Issues](contributing/issues.md)

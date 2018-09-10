@@ -1,15 +1,4 @@
-## Styleguides (GrumPHP)
-
-### PHP Styleguide (PSR2)
-
-All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards!
-
-### JavaScript Styleguide (ESLINT)
-
-* All JavaScript must adhere to [JavaScript Airbnb Style](https://github.com/airbnb/javascript/)
-* Additional custom rules are defined in the [.eslintrc.js file](https://github.com/indiehd/website-ui/blob/master/.eslintrc.js)
-
-### Git Commit Messages
+## Git Commit Messages
 
 * Use the present tense ("Add feature" not "Added feature")
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
@@ -28,7 +17,7 @@ All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards
  * Regex pattern used:
     
     ```
-    ^(api|build|chore|refact|revert|feat|tests|docs|style|ci|ui|scaff|perf|fix|wip)(\([a-zA-Z.\s]+\))?:\s[A-Za-z0-9,;'\"\\ ]{1,72}?$
+    /^(api|build|chore|refact|revert|feat|tests|docs|style|ci|ui|scaff|perf|fix|wip)(\([a-zA-Z.\s]+\))?(:[ ])([A-Za-z0-9,;_`'\"\\ ]{1,72})([\r\n|\r|\n]{1,2}[A-Za-z0-9,;_.#`@'\"\\ ]{1,72}){1,}$/
     ```
         
 * Examples of **GOOD** patterns:
@@ -71,20 +60,92 @@ All PHP MUST follow [PSR-2](https://www.php-fig.org/psr/psr-2/) coding standards
  
 * Accepted types:
 
-    * `api:`    *Related to **API***
-    * `wip:`    *Related to **Work In Progress***
+    * `api:` *Related to **API***
+        ```
+        API thats not associated with a new feature
+        
+        Addition, update or removal of Api
+        ```
+    * `wip:` *Related to **Work In Progress***
+        ```
+        If you commit with this type you are
+        aknolowledgeing that tests are failing or 
+        code is incomplete
+        
+        You should be prepared to squash your wip
+        commits before submitting a PR. We want to 
+        avoid them in the master repository
+        ```
     * `build:`  *Related to **Compiled Files***
+        ```
+        If for whatever reason it makes since to
+        version control compiled sources you would
+        use this commit type when pushing said files
+        ```
     * `chore:`  *Related to **Environment Changes***
-    * `ci:`     *Related to **Coding Continuous Integration** e.g. TravisCI*
+        ```
+        If the enviroment changes including 
+        dependencies, tooling or .env files
+        ```
+    * `ci:`     *Related to **Coding Continuous Integration***
+        ```
+        Changes or fixes to CI Tools
+        example: TravisCI
+        ```
     * `docs:`   *Related to **Documentation***
+        ```
+        This could include doc blocks and comments 
+        ```
     * `feat:`   *Related to **Features***
+        ```
+        When ADDING, UPDATING OR REMOVING a feature 
+        ```
     * `fix:`    *Related to **Bugs or Issue Fixes***
+        ```
+        This is self explainatory ...
+        
+        Often this type would be asscoaited with
+        a github issue # exlicitly referenced in
+        the body (or more commonly in the footer)
+        ```
     * `perf:`   *Related to **Performance***
+        ```
+        Any optimizations made to increase performance 
+        ```
     * `refact:` *Related to **Refactoring***
+        ```
+        When MOVING, RENAMING code
+        
+        Has no effect on the functionallity of the code
+        more so just for organization or proper terminolgy 
+        ```
     * `revert:` *Related to **Reverting** a previous commit*
-    * `style:`  *Related to **Coding Style or Linting** (not to be confused with `UI` styles)*
+        ```
+        If the commit is UN-DOING a previous commit you
+        would use this commit type
+        ```
+    * `style:`  *Related to **Coding Style***
+        ```
+        For example Linting or making changes to adhere
+        to certain coding style guidlines
+        
+        Not to be confused with `UI` styles
+        ```
     * `tests:`  *Related to **Tests***
+        ```
+        When ADDING, UPDATING or REMOVING tests 
+        ```
     * `ui:`     *Related to **UI or UX** design or markup*
+        ```
+        When you have made changes that the user can see
+        graphically in the browser 
+        ```
     * `scaff:`  *Related to **Scaffolding or Boilerplate***
-    
-[Back To Top](#styleguides-grumphp)    
+        ```
+        Sometime you just want to add some empty directories
+        or maybe want to setup some files with just some basic
+        boilerplate
+        
+        Consider using WIP type before using this. We reserve
+        the right to determine if this type is appropriate 
+        ```

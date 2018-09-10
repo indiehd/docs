@@ -1,49 +1,6 @@
-* [Introduction](intro/README.md)
-    * [Our History](intro/history.md)
-    * [Mission Statement](intro/mission.md)
-    * [About The Project](intro/about.md)
-    
-* [Patterns We Follow](patterns.md#patterns-we-follow)
-    * [PHP Standards Recommendation](patterns.md#php-standards-recommendation-psr)
-    * [S.O.L.I.D](patterns.md#solid)
-    * [Repository Pattern](patterns.md#the-repository-pattern)
-    * [Coding To Interface](patterns.md#coding-to-an-interface)
-    * [Airbnb Coding Style](patterns.md#airbnb-coding-style)
-    
-* [Tests](tests.md#testing)
-    * [web-api Directory Structure](tests.md#directory-structure-web-api)
-    * [Unit vs Feature](tests.md#unit-test-vs-feature-test)
-    * [Examples](tests.md#example-of-a-feature-test)
-    
-* [Tooling](tools.md)
+* [Introduction](README.md)
+    * [Our History](history.md)
+    * [Mission Statement](mission.md)
+    * [About The Project](about.md)
 
 * [Contributing](contributing/README.md)
-    * [Organization](contributing/organization.md)
-    
-    * [Code Of Conduct](contributing/coc.md#contributor-covenant-code-of-conduct)
-        * [Our Pledge](contributing/coc.md#our-pledge)
-        * [Our Standards](contributing/coc.md#our-standards)
-        * [Our Responsibilities](contributing/coc.md#our-responsibilities)
-        * [The Scope](contributing/coc.md#the-scope)
-        * [Enforcement](contributing/coc.md#enforcement)
-        
-    * [Licensing](contributing/licensing.md)
-    
-    * [Styleguides](contributing/styleguide.md#styleguides-grumphp)
-        * [PHP (PSR2)](contributing/styleguide.md#php-styleguide-psr2)
-        * [JavaScript (Airbnb)](contributing/styleguide.md#javascript-styleguide-eslint)
-        * [Git Commit Message](contributing/styleguide.md#git-commit-messages)
-      
-    * [Where Do I Start ?](contributing/start/README.md)
-        * [Joining The Community](contributing/start/community.md)
-        * [Cloning The Right Repository](contributing/start/cloning.md)
-        * [Setting Up Your Environment](contributing/start/env.md)
-            * [Windows](contributing/start/env.md#windows)
-            * [Linux](contributing/start/env.md#linux)
-            * [Mac OS](contributing/start/env.md#mac-os)
-            * [Jetbrains IDE](contributing/start/env.md#jetbrains-ide)
-            * [VSCode](contributing/start/env.md#vscode)
-        * [Good First Contribution](contributing/start/first.md)
-        
-    * [Pull Requests](contributing/pullreq.md)
-    * [Issues](contributing/issues/md)
