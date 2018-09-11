@@ -5,6 +5,8 @@
 * Limit the first line to 72 characters or less
 * Reference issues and pull requests liberally after the first line
 
+* Regex pattern used: [regex101.com](https://regex101.com/r/zZfwvc/1)
+
 * Commit conventions follow this pattern:
     ```
     type[(scope)]: subject
@@ -12,12 +14,6 @@
     [body]
     <BLANK LINE>
     [footer]
-    ```
-    
- * Regex pattern used:
-    
-    ```
-    /^(api|build|chore|refact|revert|feat|tests|docs|style|ci|ui|scaff|perf|fix|wip)(\([a-zA-Z.\s]+\))?(:[ ])([A-Za-z0-9,;_`'\"\\ ]{1,72})([\r\n|\r|\n]{1,2}[A-Za-z0-9,;_.#`@'\"\\ ]{1,72}){1,}$/
     ```
         
 * Examples of **GOOD** patterns:
