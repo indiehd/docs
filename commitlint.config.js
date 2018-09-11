@@ -10,8 +10,8 @@ module.exports = {
 
     'subject-case': [
       2,
-      'never',
-      ['start-case', 'pascal-case', 'upper-case'],
+      'always',
+      ['start-case'],
     ],
 
     'subject-empty': [2, 'never'],

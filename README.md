@@ -4,7 +4,7 @@
 We have decided to consolidate all documentation regarding **indieHD's** repositories into a single, easy and organized 
 location!
 
-Feel free to contribute to this repository also!
+`You can switch between the different documentations from the top right nav bar`
 
 Thanks,
 

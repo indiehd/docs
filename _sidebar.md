@@ -1,6 +1,7 @@
 * [Introduction](README.md)
-    * [Our History](history.md)
-    * [Mission Statement](mission.md)
-    * [About The Project](about.md)
+* [Our History](HISTORY.md)
+* [Mission Statement](MISSION.md)
+* [About The Project](ABOUT.md)
 
-* [Contributing](contributing/README.md)
+* [Contributing](CONTRIBUTING.md)
+
