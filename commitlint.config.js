@@ -11,7 +11,7 @@ module.exports = {
     'subject-case': [
       2,
       'always',
-      ['start-case'],
+      ['sentence-case'],
     ],
 
     'subject-empty': [2, 'never'],
