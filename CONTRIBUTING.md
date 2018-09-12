@@ -110,8 +110,9 @@ specified explicitly).
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
 * Limit the first line to 72 characters or less
 * Reference issues and pull requests liberally after the first line
+* No punctuation is allowed in the ***Subject*** line (. ! ?)
 
-* Regex pattern used: [regex101.com](https://regex101.com/r/zZfwvc/1)
+* Regex pattern used: [regex101.com](https://regex101.com/r/zZfwvc/4)
 
 * Commit conventions follow this pattern:
     ```
@@ -127,14 +128,18 @@ specified explicitly).
     ```
     api: should pass
     fix(scope): should pass
-    wip(Scope): should pass
     api(This Scope): should pass
-    api(.scope): should pass
+    wip(Scope): should pass #409 @ - , ' / \ " blah_blah
+    Merge branch 'branch-name-here' blah blah blah
+    Merge remote-tracking branch 'upstream/master'
+    Merge pull request #490 from origin/master
     ```
     
 * Examples of **BAD** patterns
     ```
-    whatever i want
+    should fail because i can't just put whetever i want here
+    wip(Scope): should fail because no punctionation in subject is allowed. ! ?
+    api(.scope): should fail
     (api) should fail
     api[scope] should fail
     api should fail
@@ -145,7 +150,6 @@ specified explicitly).
     aPi: should fail
     aPI(scope): should fail
     api[scope]: should fail
-    api(.scope): should fail because it is super long should fail because it is super long should fail because it is super long
     ```
     
 * Optional (anything inside `[...]`):    
@@ -155,10 +159,10 @@ specified explicitly).
     
 * Common Examples:
     * `build: Add compiled files`
-    * `chore(.gitignore): Add node_modules`
-    * `fix: Fix for issue #12`
+    * `chore(gitignore): Add node_modules to git ignore file`
+    * `fix: Fix issue with blah blah`
     * `style: Remove useless elses`
-    * `ui: Add button to ... I think you get the point`
+    * `ui: Add image to profile view`
  
 * Accepted types:
 
