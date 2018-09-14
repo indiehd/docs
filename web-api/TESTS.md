@@ -1,26 +1,26 @@
 # Testing with PHPUnit
 
-#### Directory Structure
+## Directory Structure
  
  The below image should give you a good idea how our tests are organized. Mostly you see Feature 
  tests here!
  
  ![](../images/tests_dir_structure.png)
  
-#### Run all tests
+## Run all tests
  * Run the following command from the project root directory:
 ```
 vendor/bin/phpunit
 ```
 
-#### Run all tests in a specific `directory`
+## Run all tests in a specific `directory`
  * `PATH/TO/DIRECTORY` - Full path to the directory relative to the project root
  ***Note: don't include `.php` in the path***
 ```
 vendor/bin/phpunit PATH/TO/DIRECTORY 
 ```
 
-#### Run a single test `class`
+## Run a single test `class`
  * `CLASSNAME` - The name of the class of which your method is in
  * `PATH/TO/FILE` - Full path to the file itself relative to the project root
  ***Note: don't include `.php` in the path***
@@ -28,7 +28,7 @@ vendor/bin/phpunit PATH/TO/DIRECTORY
 vendor/bin/phpunit --filter CLASSNAME PATH/TO/FILE 
 ```
 
-#### Run a single test `method`
+## Run a single test `method`
  * `METHODNAME` - The name of the method you wish to test
  * `CLASSNAME` - The name of the class of which your method is in
  * `PATH/TO/FILE` - Full path to the file itself relative to the project root
@@ -37,7 +37,7 @@ vendor/bin/phpunit --filter CLASSNAME PATH/TO/FILE
 vendor/bin/phpunit --filter METHODNAME CLASSNAME PATH/TO/FILE
 ```
 
-#### Dealing with cache
+## Dealing with cache
 Often times you will have to test `Model Repositories` that normally would fetch data from the 
 database. This is fine until the repository implements a caching layer in which you will get
 inaccurate test results.
@@ -76,7 +76,7 @@ public function test_method_update_updatesResource()
 }
 ```
 
-#### PHPCS Linting
+## PHPCS Linting
 We use [GrumPHP](https://github.com/phpro/grumphp/blob/master/README.md) as a task runner which will simply run the 
 `phpcs` for php linting.
 
@@ -103,7 +103,7 @@ vendor/bin/phpcs --standard=PSR2 FILEPATH
 vendor/bin/phpcbf --standard=PSR2 FILEPATH 
 ```
 
-#### `Unit Test` vs `Feature Test`
+## `Unit Test` vs `Feature Test`
  
  This is the way we like to interpret it:
  
@@ -113,7 +113,7 @@ vendor/bin/phpcbf --standard=PSR2 FILEPATH
  * ***`Feature (aka Functional/Integration) Test`*** - testing a slice of functionality in a system. 
  This will test many methods and may interact with dependencies like Databases or Web Services.
  
- #### Example of a ***`Feature Test`***
+## Example of a ***`Feature Test`***
  
  ```php
 /**
@@ -133,7 +133,7 @@ public function test_method_create_storesNewModel()
 }
  ```
  
- #### Example of a ***`Unit Test`***
+## Example of a ***`Unit Test`***
  
  *This is just a crude example and not related to this project. At the time of this writing we do not
   have a example of a Unit test in this project.*
