@@ -30,9 +30,40 @@
       subMaxLevel: 3,
       loadSidebar: true,
       themeColor: '#6b15a1',
+      search: {
+        paths: [
+          // Home Search Paths
+          '/home/',
+          '/home/ABOUT',
+          '/home/HISTORY',
+          '/home/MISSION',
+          '/home/CONTRIBUTING',
+
+          // Web Api Search Paths
+          '/web-api/',
+          '/web-api/windows/',
+          '/web-api/PATTERNS',
+          '/web-api/TESTS',
+          '/web-api/TOOLS',
+          '/web-api/CONTRIBUTING',
+
+          // Website UI Search Paths
+          '/website-ui/',
+          '/website-ui/PATTERNS',
+          '/website-ui/CONTRIBUTING',
+        ],
+        placeholder: 'Search',
+        noData: 'Nothing Found',
+        depth: 3,
+      },
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+  <!-- Plugins -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- Syntax Highlighting -->
   <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-css.min.js"></script>
