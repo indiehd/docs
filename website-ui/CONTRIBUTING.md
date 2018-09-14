@@ -1,9 +1,12 @@
+# Intro
+`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
+
 # Contributing To The `website-ui` Repository
 
-The following is a set of rules for contributing to the [website-ui](https://github.com/indiehd/website-ui)
+The following documentation refers to anyone contributing to the [website-ui](https://github.com/indiehd/website-ui)
 repository on GitHub. 
 
-These rules are considered when approving submitted contributions.
+All rules are considered when approving submitted contributions.
 
 ## Cloning This repository
 

@@ -1,7 +1,4 @@
-* [Introduction](README.md)
-* [Our History](HISTORY.md)
-* [Mission Statement](MISSION.md)
-* [About The Project](ABOUT.md)
-
-* [Contributing](CONTRIBUTING.md)
-
+* [Home](home/README.md)
+* [Web Api](web-api/README.md)  
+* [Website UI](website-ui/README.md)
+* [Docs Repository](DOCSREPO.md)

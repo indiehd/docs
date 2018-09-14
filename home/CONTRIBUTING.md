@@ -1,19 +1,5 @@
 # Intro
-
-The following is a set of rules for contributing to IndieHD and its packages, which are hosted in the 
-[IndieHD Organization](https://github.com/indiehd) on GitHub. 
-
-These rules are considered when approving submitted contributions.
-
-## Cloning
-
-You would clone [this](https://github.com/indiehd/docs) repository if you wanted to submit changes to the documentation you
-currently reading. It uses the [Docsify](https://docsify.js.org/#/?id=docsify) library for 
-generating the content.
-
-**Contributor Qualifications:**
- * Articulate content writer
- * Patience
+This documentation will outline some guidelines as well as some information you as a contributor will need to know.
  
 ## Organization Name
 

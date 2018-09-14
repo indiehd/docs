@@ -1,9 +1,12 @@
+# Intro
+`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
+
 # Contributing To The `web-api` Repository
 
-The following is a set of rules for contributing to the [web-api](https://github.com/indiehd/web-api)
+The following documentation refers to anyone contributing to the [web-api](https://github.com/indiehd/web-api)
 repository on GitHub. 
 
-These rules are considered when approving submitted contributions.
+All rules are considered when approving submitted contributions.
 
 ## Cloning The Repository
 You would clone this repository if you want to contribute to the server side Api. 
@@ -26,7 +29,7 @@ This repository handles:
 ## Setting Up Your Environment
 
 ### Windows
-`Documentation under construction`
+You can find the documentation [HERE](web-api/windows/README.md)
 
 ### Debian / Ubuntu
 `Documentation under construction`
