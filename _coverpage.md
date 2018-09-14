@@ -1,3 +1,5 @@
+![](images/logo.svg)
+
 # INDIEHD, LLC Documentation
 
 > We provide Artists with a simple, do-if-yourself platform for selling their music to fans, digitally.
