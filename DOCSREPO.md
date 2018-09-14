@@ -1,3 +1,6 @@
+# Docs Repository Documentation
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/indiehd/docs.svg?columns=all)](https://waffle.io/indiehd/docs)
+
 ## Cloning The Repository
 
 You would clone [this](https://github.com/indiehd/docs) repository if you wanted to submit changes to the documentation you
