@@ -233,13 +233,13 @@ commands to get the project setup.
      vagrant@homestead:~$ 
     ```
 
-*You are not working inside the Virtual Machine (Ubuntu)*
+*You are now working inside the Virtual Machine (Ubuntu)*
     
 * Run `cd projects/www/web-api`
 * Run `php artisan migrate --seed`
     
 *This will seed a bunch of dummy data into the database, this is useful during development*
 
-**Thats It!!** 
+**That's It!!** 
 
 Having issues please join [our discord server](https://discord.gg/hDC3Yw6) and Join `#general` and ask for help.
