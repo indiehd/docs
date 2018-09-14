@@ -1,7 +1,5 @@
-# Intro
-`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
-
 # Contributing To The `website-ui` Repository
+`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
 
 The following documentation refers to anyone contributing to the [website-ui](https://github.com/indiehd/website-ui)
 repository on GitHub. 

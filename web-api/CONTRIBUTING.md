@@ -1,7 +1,5 @@
-# Intro
-`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
-
 # Contributing To The `web-api` Repository
+`This is an extension of` [This Documentation](home/CONTRIBUTING.md)
 
 The following documentation refers to anyone contributing to the [web-api](https://github.com/indiehd/web-api)
 repository on GitHub. 
