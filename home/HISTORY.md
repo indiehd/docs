@@ -8,7 +8,7 @@ Apparent in the organization's earliest writings is a lack of appreciation for t
 
 This very frustration is what inspired indieTorrent's creator to build a service that enables musicians and so-called "indie-friendly" record labels to sell their own music directly to their fans, through their own websites, while retaining all creative rights, setting their own song and album prices, and retaining all profits; complete control in a DIY (do-it-yourself) format, without all the middlemen.
 
-But principle and dedication alone do not a successful platform make. In certain instances, the condemnation of, and disinclination to work with, the industry's long-established gatekeepers and stakeholders hindered the project's growth potential in unexpected ways. It became clear that, metaphorically speaking, the time would come to "shave, get a haircut, put on a tie, and get a real job".
+But principle and dedication alone do not make a successful platform. In certain instances, the condemnation of, and disinclination to work with, the industry's long-established gatekeepers and stakeholders hindered the project's growth potential in unexpected ways. It became clear that, metaphorically speaking, the time would come to "shave, get a haircut, put on a tie, and get a real job".
 
 It too became clear that the organization would need to distance itself from its former namesake, which was a not-so-subtle reference to BitTorrent.
 
