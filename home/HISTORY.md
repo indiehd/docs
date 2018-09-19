@@ -1,2 +1,21 @@
 # IndieHD, LLC History
-`Documentation under construction`
+
+indieHD is the successor to indieTorrent, which was a novel digital content sale and distribution platform conceived in 2005. The service launched as a public beta in June 2008, without marketing or advertising, and existed in much the same state for the decade that followed. It enjoyed modest success and praise in certain corners of the internet, but it never attained worldwide exposure, in large part because its creator was content to let it flower quietly and without fanfare. The mantra was that controlled growth and stability are more important to the project's longevity than growth for growth's sake.
+
+From its inception, the indieTorrent project &mdash; and the individuals behind it &mdash; exuded an underground, grassroots spirit, borrowing from a handful of sub and counter-cultures. Not uniquely "cyber-punk", not uniquely "hacker", but definitely anti-establishment.
+
+Apparent in the organization's earliest writings is a lack of appreciation for the Music Industry. The palpable disdain for the status quo, as evident in the original Manifesto, was born of a frustration with the major record labels, their lobbying arms, the heavy-handed, post-Napster-era copyright enforcement that made criminals of ordinary citizens, exploitation of musicians, and the prioritization of profits above all else.
+
+This very frustration is what inspired indieTorrent's creator to build a service that enables musicians and so-called "indie-friendly" record labels to sell their own music directly to their fans, through their own websites, while retaining all creative rights, setting their own song and album prices, and retaining all profits; complete control in a DIY (do-it-yourself) format, without all the middlemen.
+
+But principle and dedication alone do not make a successful platform. In certain instances, the condemnation of, and disinclination to work with, the industry's long-established gatekeepers and stakeholders hindered the project's growth potential in unexpected ways. It became clear that, metaphorically speaking, the time would come to "shave, get a haircut, put on a tie, and get a real job".
+
+It too became clear that the organization would need to distance itself from its former namesake, which was a not-so-subtle reference to BitTorrent.
+
+BitTorrent is a wondrous technology (a network protocol, technically) that solves so many of the challenges associated with moving massive amounts of digital data as efficiently as possible. In 2005, it was the perfect and natural protocol of choice for a digital audio and video distribution platform whose priorities were reliability and scalability.
+
+BitTorrent is so ingenious and effective that the "electronic piracy" scene has grown increasingly notorious over the years for leveraging the protocol to distribute copyrighted works. BitTorrent turned the Napster era &mdash; in which more downloaders meant slower downloads &mdash; on its ear. With BitTorrent, the opposite is true: more downloaders means faster downloads for everyone. To this day, BitTorrent remains the "pirate's" favored protocol for distributing content of every variety, which has, for better or worse, attached an undesirable stigma to the BitTorrent name.
+
+Accordingly, the BitTorrent references in indieTorrent's name, on its website, and in its documentation, had unforeseen consequences over time. Google began blacklisting "torrent sites" indiscriminately, despite the fact that indieTorrent was employing the technology in a completely legal way, and distributing artists' works at their own request, and on their own terms. Google's monopoly on search, coupled with most of the internet as a whole, left indieTorrent with no choice but to change its name and abandon its use of BitTorrent technology altogether.
+
+On the heels of its adolescence, and to celebrate its 10-year anniversary, indieTorrent was reborn as indieHD. The new venture aims to appeal to a more mainstream audience and achieve much wider distribution through its community-driven, open-source software initiative. Whereas its predecessor was the brainchild of a lone software developer, indieHD is a far more sophisticated, polished, and enterprise-grade product, built at the hands of an entire community. The future of DIY digital distribution starts now, and it starts with indieHD.
