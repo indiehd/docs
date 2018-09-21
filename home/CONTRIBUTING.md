@@ -98,8 +98,6 @@ specified explicitly).
 * Reference issues and pull requests liberally after the first line
 * No punctuation is allowed in the ***Subject*** line (. ! ?)
 
-* Regex pattern used: [regex101.com](https://regex101.com/r/zZfwvc/4)
-
 * Commit conventions follow this pattern:
     ```
     type[(scope)]: subject
