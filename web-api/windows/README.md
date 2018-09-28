@@ -153,9 +153,9 @@ mkdir ~/projects/www
 *Open up [Git Bash](#git-bash-terminal). It will be used to run all commands used in this section*
 
 * Run `cd ~/projects/www/web-api`
+* Run `composer install`
 * Run `mv .env.example .env`
 * Run `php artisan key:generate`
-* Run `composer install`
 
 ## Homestead
 
