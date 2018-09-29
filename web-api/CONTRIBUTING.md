@@ -7,7 +7,7 @@ repository on GitHub.
 All rules are considered when approving submitted contributions.
 
 ## Cloning The Repository
-You would clone this repository if you want to contribute to the server side Api. 
+You would clone [web-api](https://github.com/indiehd/web-api) if you want to contribute to the server side Api. 
 
 This repository handles:
 
@@ -25,6 +25,9 @@ This repository handles:
 * [Laravel Framework](https://laravel.com/docs/5.7)
 * Strong understanding of [S.O.L.I.D Principles](https://medium.com/prod-io/solid-principles-takeaways-ec0825a07247)
 * Familiarity with [PhpUnit Testing](https://laravel.com/docs/5.7/testing)
+
+*Change to the appropriate directory*
+* Run `git clone https://github.com/indiehd/web-api.git`
     
 ## Setting Up Your Environment
 
