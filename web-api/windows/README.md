@@ -101,10 +101,10 @@ Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe
 version and set up your PATH so that you can call composer from any directory in your command line.
 
 ## VirtualBox
-Download and install [VirtualBox](https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe)
+Download and install the **`latest version`** from [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 ## Vagrant
-Download and install [Vagrant](https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.msi)
+Download and install the **`latest version`** from [Vagrant Downloads](https://www.vagrantup.com/downloads.html)
 
 ## Hosts File
 On windows this can be a bit tricky.
@@ -165,7 +165,11 @@ mkdir ~/projects/www
 
 * Run `vagrant box add laravel/homestead`
  
-**Installing** 
+**Installing**
+
+[Laravel Docs](https://laravel.com/docs/5.7/homestead#first-steps)
+
+*Please be sure to check the official Laravel documentation for the most updated instructions*
 
 * Run `git clone https://github.com/laravel/homestead.git ~/Homestead`
 * Run `cd ~/Homestead && git checkout v7.17.0`
@@ -215,7 +219,7 @@ commands to get the project setup.
 
 * Run `vagrant up` 
     
-    *Be sure there are no errors here. They will be highlighed in red. You may also see a bunch of warnings like 
+    *Be sure there are no errors here. They will be highlighted in red. You may also see a bunch of warnings like 
     below that can be ignored assuming it eventually finishes*
     ```
     homestead-7: Warning: Connection reset. Retrying...
@@ -242,4 +246,4 @@ commands to get the project setup.
 
 **That's It!!** 
 
-Having issues please join [our discord server](https://discord.gg/hDC3Yw6) and Join `#general` and ask for help.
+Having issues please join [our discord server](https://discord.gg/hDC3Yw6) and Join `#support` and ask for help.
