@@ -1,5 +1,5 @@
 # The Mission
-We provide Artists with a simple, do-if-yourself platform for selling their music to fans, 
+We provide Artists with a simple, do-it-yourself platform for selling their music to fans, 
 digitally.
 
 We have a passion for high-quality audio and album artwork, and we go to great lengths to preserve 
