@@ -16,13 +16,19 @@
     }
 
     :root {
+      /* App */
       --base-font-size: 16px;
-      --code-font-size: 14px;
-      --code-theme-text: #00a1df;
-      --code-inline-color: #ff0bd3;
+
+      /* Sidebar */
+      --sidebar-width: 22rem;
       --sidebar-nav-link-color--hover: #00a1df;
       --sidebar-nav-link-color--active: #ff0bd3;
       --sidebar-nav-link-text-decoration--hover: none;
+
+      /* Code Blocks */
+      --code-font-size: 14px;
+      --code-theme-text: #00a1df;
+      --code-inline-color: #ff0bd3;
     }
   </style>
 </head>
@@ -34,6 +40,7 @@
         readyTransition : true,
         responsiveTables: true,
       },
+      themeColor: '#6b15a1',
       name: 'INDIEHD, LLC',
       repo: 'https://github.com/indiehd/docs',
       logo: '/images/logo.svg',
@@ -42,7 +49,9 @@
       maxLevel   : 3,
       subMaxLevel: 3,
       loadSidebar: true,
-      themeColor: '#6b15a1',
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
       search: {
         paths: [
           // Home Search Paths
