@@ -3,7 +3,7 @@
 
 ## Fork The Repository
 
-You would fork [website-ui](https://github.com/indiehd/website-ui) if you wanted to submit changes to the documentation 
+You would fork [docs](https://github.com/indiehd/docs) if you wanted to submit changes to the documentation 
 you are currently reading.
 
 It uses the [Docsify](https://docsify.js.org/#/?id=docsify) library for generating the content.
