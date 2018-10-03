@@ -18,12 +18,12 @@ Git Bash is included in the [Git For Windows](https://github.com/git-for-windows
 
 *At this point, You may want to open up `Git Bash` terminal as we will be using it throughout this documentation.*
 
-## PHP 7.2
+## PHP7
 This will help setup a common PHP installation on windows. 
 
 *This setup is not specific to our project and should be good for most projects.*
 
-* Download the latest PHP7 (non-thread safe version) zip file from [HERE](http://windows.php.net/)
+* Download the latest PHP7 (non-thread safe version) zip file from [HERE](https://windows.php.net/download/)
 
 * Extract the contents of the zip file into `C:\PHP7`
 
@@ -78,13 +78,13 @@ extension=xsl
 
 *Windows 7*
 
-![](../../images/php7-windows7-path.png)
+![](../images/php7-windows7-path.png)
 
 ***Important: on windows 7 you must add to the paths `value` ... the values are separated with a `;`***
 
 *Windows 10*
 
-![](../../images/php7-windows10-path.png)
+![](../images/php7-windows10-path.png)
 
 * Finally, In [Git Bash](#git-bash-terminal) test that the installation is successful by typing `php -v`
 

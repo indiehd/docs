@@ -1,7 +1,9 @@
 # About
 
-## Why indieHD over iTunes, Amazon, CD Baby, Bandcamp, etc.?
-#### Fairness
+#### Why indieHD over iTunes, Amazon, CD Baby, Bandcamp, etc.?
+ 
+**Fairness**
+ 
  * We give artists the money they deserve: ~85% of each dollar. We keep 10% to cover our costs, and 
  payment processing accounts for ~5% of the average order.
  
@@ -9,7 +11,8 @@
  browser. indieHD music is DRM-free and no proprietary software is required to download or play the 
  files.
 
-#### Quality
+**Quality**
+
  * We offer lossless audio files, which contain the original, CD-quality data from the physical CD. 
  Most digital music stores offer the customer a low-fidelity file (such as MP3 or M4A). For 
  convenience, we also offer MP3 and M4A versions of each purchased track, as well as ALAC 
@@ -23,11 +26,13 @@
  * A print-quality CD-booklet ("liner notes"), in PDF format, accompanies each album at the artist's 
  option.
 
-#### Transparency
+**Transparency**
+
  * We show both artists and fans how each sale is allocated (% to artist, % to credit card 
  processing, % to indieHD expenses).
 
-#### Light-Touch
+**Light-Touch**
+
  * There are no long-term contracts to sign; artists enable/disable/manage their own music catalogs 
  and leave any time they like.
  
@@ -37,7 +42,7 @@
  required.
 
 
-## How does it work?
+#### How does it work?
 E-Commerce is expensive, and not every musician is in a position to set-up a secure web-server and 
 sell music online. Instead, many do-it-yourself artists and music labels turn to an 
 `"out-of-the-box"`solution. While less expensive than a custom e-commerce solution, these systems 
