@@ -113,7 +113,7 @@ vendor/bin/phpcbf --standard=PSR2 FILEPATH
  * ***`Feature (aka Functional/Integration) Test`*** - testing a slice of functionality in a system. 
  This will test many methods and may interact with dependencies like Databases or Web Services.
  
-## Example of a ***`Feature Test`***
+## Feature Test Example
  
  ```php
 /**
@@ -133,7 +133,7 @@ public function test_method_create_storesNewModel()
 }
  ```
  
-## Example of a ***`Unit Test`***
+## Unit Test Example
  
  *This is just a crude example and not related to this project. At the time of this writing we do not
   have a example of a Unit test in this project.*
