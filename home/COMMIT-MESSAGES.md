@@ -24,10 +24,16 @@ type(scope): subject
         
 ## Good Examples
     
-* api: should pass
-* fix(scope): should pass
-* api(This Scope): should pass
-* wip(Scope): should pass #409 @ - , ' / \ " blah_blah
+* build: Add compiled files
+* chore(gitignore): Add node_modules to git ignore file
+* fix: Fix issue with blah blah
+* style: Remove useless elses
+* ui: Add image to profile view
+
+## Merge Message Examples
+
+These are also allowed as commit messages.
+
 * Merge branch 'branch-name-here' blah blah blah
 * Merge remote-tracking branch 'upstream/master'
 * Merge pull request #490 from origin/master
@@ -39,15 +45,6 @@ type(scope): subject
 * api[scope]: should fail because i can't wrap scope with `[]`
 * (api) should fail because i don't follow the [Pattern](#commit-pattern)
 
-    
-## Common Examples
-
-* build: Add compiled files
-* chore(gitignore): Add node_modules to git ignore file
-* fix: Fix issue with blah blah
-* style: Remove useless elses
-* ui: Add image to profile view
- 
 ## Accepted Types
 
 * [api](#api)
