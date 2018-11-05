@@ -1,8 +1,9 @@
 # Licensing
+**IndieHD** is still determining under which License(s) the various project components will be made 
+available.
+
 Unless otherwise specified, All Rights Reserved applies!
 
-**IndieHD** is still determining under which License(s) the various project components will be made 
-available. 
-
-All Rights Reserved should be assumed until further notice (or other licensing terms are 
-specified explicitly).
+# web-api
+The [web-api](https://github.com/indiehd/web-api) repository is licensed under the 
+[GNU Affero General Public License v3.0](https://github.com/indiehd/web-api/blob/master/LICENSE)
