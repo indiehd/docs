@@ -1,8 +1,10 @@
 # Licensing
-Unless otherwise specified, All Rights Reserved applies!
 
-**IndieHD** is still determining under which License(s) the various project components will be made 
-available. 
+The various project components are licensed under the following terms:
 
-All Rights Reserved should be assumed until further notice (or other licensing terms are 
-specified explicitly).
+| Project Component | License                                                  | Source Code Repository URL                   |
+|-------------------|----------------------------------------------------------|----------------------------------------------|
+| Documentation     | Attribution-ShareAlike 4.0 International (CC BY-SA v4.0) | https://github.com/indiehd/docs              |
+| Web API           | GNU Affero General Public License, Version 3 (AGPLv3)    | https://github.com/indiehd/web-api           |
+| Website UI        | GNU Public License, Version 3 (GPLv3)                    | https://github.com/indiehd/website-ui        |
+| Audio Manipulator | GNU Affero General Public License, Version 3 (AGPLv3)    | https://github.com/indiehd/audio-manipulator |
