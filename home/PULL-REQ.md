@@ -59,4 +59,4 @@ Only once you are fully reviewed and all conversations have been resolved should
 
 The author of a PR *cannot* merge their own PR.
 
-?> This only applies to Core Developers, Contruibutors won't have this ability anyways.
+?> This only applies to Core Developers, as Contributors won't have this ability anyways.
