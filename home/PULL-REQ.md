@@ -1,6 +1,6 @@
 # Pull Requests
 
-!> Failure to follow the the following guidelines will result in the PR being closed `with explanation`!
+!> Failure to follow the these guidelines will result in the PR being closed with an explanation as to why.
 
 ## Branching
 

@@ -1,10 +1,11 @@
 # Documentation
 
-We have decided to consolidate all documentation regarding **indieHD's** repositories into a single, easy and organized 
-location!
+Welcome to the indieHD project documentation.
+
+This document repository aims to be a comprehensive guide to all development-related aspects of the indieHD project and caters specifically to web-developers and programmers. 
 
 ?> Use the sidebar to navigate the documentation
 
-Thanks,
+Thanks for your interest and support!
 
-INDIE HD, LLC (and team)
+-indieHD, LLC (and team)

@@ -1,11 +1,11 @@
 ![](images/logo.svg)
 
-# INDIEHD, LLC Documentation
+# indieHD Documentation
 
 > We provide Artists with a simple, do-it-yourself platform for selling their music to fans, digitally.
 
-- Next generation for the IndieHD Platform
-- Built with modern day web development technologies 
+- Next generation for the indieHD Platform
+- Built with modern-day web development technologies 
 - Standalone front-end and back-end
 
 [Get Started](#main)
