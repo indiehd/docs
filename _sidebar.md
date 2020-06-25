@@ -10,7 +10,10 @@
     * [Commit Messages](home/COMMIT-MESSAGES.md)
     * [Issues](home/ISSUES.md)
     * [Pull Requests](home/PULL-REQ.md)
-    
+
+* **Domain Knowledge & Business Rules**
+    * [Domain Objects (Models)](domain-knowledge/DOMAIN-OBJECTS.md)
+
 * **Web Api**
     * [Introduction](web-api/README.md)
     * [Patterns We Follow](web-api/PATTERNS.md)
@@ -18,7 +21,7 @@
     * [Tooling](web-api/TOOLS.md)
     * [Style Guide](web-api/STYLE-GUIDE.md)
     * [Windows Env Setup](web-api/WINDOWS.md)
-      
+
 * **Website UI**
     * [Introduction](website-ui/README.md)
     * [Patterns We Follow](website-ui/PATTERNS.md)
