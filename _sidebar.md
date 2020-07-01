@@ -13,6 +13,7 @@
 
 * **Domain Knowledge & Business Rules**
     * [Domain Objects (Models)](domain-knowledge/DOMAIN-OBJECTS.md)
+    * [Business Rules](domain-knowledge/BUSINESS-RULES.md)
 
 * **Web Api**
     * [Introduction](web-api/README.md)

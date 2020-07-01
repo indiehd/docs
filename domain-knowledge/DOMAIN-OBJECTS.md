@@ -2,17 +2,17 @@
 
 ## Terminology
 
-### "Service"
+### Service
 
 The "Service" refers collectively to the software and accompanying third-party tools
 that comprise the indieHD suite, _installed and "running" on a server_.
 
-### "Service Instance"
+### Service Instance
 
 A "Service Instance" refers to _one particular "installation"_ of the software
 and accompanying third-party tools that comprise the indieHD suite.
 
-### "Service Operator"
+### Service Operator
 
 The "Service Operator" refers to the entity that operates the "Service". indieHD, LLC,
 operates a "Service Instance", but is not necessarily the sole, exclusive "Service Operator". 
@@ -113,9 +113,9 @@ Microsoft's Commerce Server documentation:
 
 https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee785199(v=cs.20)?redirectedfrom=MSDN 
 
-To be clear, this is not a "Microsoft-specific" strategy; it is widely understood,
-and Microsoft's explanation is one of many (although, it is concise and among
-the better examples).
+This discounting strategy is not specific to Microsoft Commerce Server; it is a
+widely understood technique, but Microsoft's explanation is clear, concise,
+and includes detailed examples.
 
 ### Artist
 
@@ -147,7 +147,8 @@ When a `User` requests an `Artist` or `Label` `Profile`, they are asked, in effe
 should we contact if we need to reach the `Artist` or `Label` in an official,
 legal capacity, such as if the service owes unclaimed monies to the `Artist` or `Label` that you represent,
 or if a legal dispute, e.g., in relation to a copyright claim, requires official
-correspondence?" Very simply, the `User's` response describes the `CatalogEntity`.
+correspondence?" The contact information that the `User` provides in response is
+stored as a `CatalogEntity`.
 
 Stated another way, a `CatalogEntity` contains the information
 required for the service operator to be able to transact with the `Artist` or `Label`
@@ -245,11 +246,13 @@ control over the `Artist`, and so the same is true here. A `Label` is
 able to perform _any_ action that an `Artist` would normally be able to perform,
 for any `Artist` under its control.
 
-Due to the potential for conflicts of interest to arise between an `Artist` and a
-`Label` , were they not controlled by the same entity/account-holder, a given
-`Artist` that is associated with a `Label` cannot be controlled separately by
-an `Artist`. In other words, an `Artist` is either self-controlled, or controlled
-by a `Label` (but not both).
+#### Access Policy
+
+- Due to the potential for conflicts of interest to arise between an `Artist` and a
+  `Label` , were they not controlled by the same entity/account-holder, a given
+  `Artist` that is associated with a `Label` cannot be controlled separately by
+  an `Artist`. In other words, an `Artist` is either self-controlled, or controlled
+  by a `Label` (but not both).
 
 ### Order
 
@@ -278,29 +281,6 @@ website URL, etc.
 ### Song
 
 A `Song` is exactly what it sounds like. An `Album` contains one or more `Songs`.
-Every `Song` must be associated with a `FlacFile`, and in fact, the `FlacFile`
-may be associated with more than one `Song`. In effect, this means that the same
-`FlacFile` can appear on more than one `Album`, the use-case for which is simple:
-an `Artist` could very well upload a `Song` as a "single" (in which case it is
-the only `Song` on the `Album`) and later include the same `Song` on a full-length
-`Album`. Both "instances" of this `Song` can therefore share the same `FlacFile`,
-but at the same time have different metadata attributes, such as price.
-
-In the event that an `Artist` uploads the same audio file twice, a reference to
-the existing file is created instead of storing the identical file again. As such,
-if a `Song` is ever deleted, the binary audio file that belongs to the associated
-`FlacFile` is deleted only if there are no remaining references to the `FlacFile`,
-i.e., the `FlacFile` associated with the `Song` being deleted does not appear on
-any of the `Artist's` other `Albums`.
- 
-This logic applies only a per-`Artist` basis; that is, if an `Artist` uploads
-a file that is identical to a file that a _different_ `Artist` has uploaded
-previously, then the identical copy _is_ stored. This rule ensures that `Artists`
-have exclusive ownership over the audio files associated with their `Songs`, but
-that needless duplication is avoided wherever practical. If it were
-possible to share a `FlacFile` between two different `Artists`, seemingly simple
-determinations, such as "Who uploaded this file?", become far more difficult,
-with no real benefit beyond marginal storage gains.
 
 An `Artist` may disable a `Song` at any time, which removes it from public
 visibility and prevents it from being added to a customer's shopping cart.
