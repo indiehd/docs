@@ -173,11 +173,73 @@ possible to share a `FlacFile` between two different `Artists`, seemingly simple
 determinations, such as "Who uploaded this file?", become far more difficult,
 with no real benefit beyond marginal storage gains.
 
-## Account Closure
+## Account Closure & Deletion
+
+`Account` closure is implemented with "soft-deletion" on the `User` object, so it
+is completely reversible. When a `User` closes an `Account`, all publicly
+accessible content associated with that user disappears from the service
+immediately. 
+
+To reopen the account, the `User` may simply log in again and confirm the intention
+to reopen the account.
+
+Account deletion, on the other hand, is implemented with "hard-deletion", so it
+is permanent and cannot be undone. 
 
 ### For Non-Artist/Label
 
+When a `User` that is not associated with an `Artist` or `Label`, the following
+objects are deleted *inside a transaction* (and in this order, to prevent
+foreign key failures):
+
+- `OrderItem`
+- `Order`
+- `Account`
+- `User`
+
 ### For Artist/Label
+
+#### For Artist
+
+When a `User` is associated with an `Artist`, additional provisions apply when
+deleting an `Account`.
+
+When an `Artist` requests that its `Account` be deleted, the deletion is queued,
+pending an eligibility check is against the following rules:
+
+1. All albums have been disabled (this prevents customers from making further
+   purchases, which would extend the deletion timeline for 90 more days).
+2. All monies owed to the `Artist` have been paid to its associated `CatalogEntity`.
+3. 90 days have elapsed since a customer last purchased the `Artist's` content.
+4. All of the `Artist's` albums have been deleted.
+5. All of the `Artist's` uploaded images have been deleted.
+
+Once every 24 hours, eligibility is evaluated, and if any of those statements is
+false, the `Account` is ineligible for deletion, and the service will complete
+any steps that it can, automatically, before the next evaluation.
+
+Eventually, all statements will evaluate as true, at which time the `Account`,
+and all associated content (database records and files) is hard-deleted.
+
+Upon successful deletion, the following objects are deleted, *inside a transaction*
+(and in this order, to prevent foreign key failures):
+
+- `OrderItem`
+- `Order`
+- `Profile`
+- `Account`
+- `User`
+
+*Before the transaction is committed*, a confirmation email message is queued to
+be sent to the email address associated with the `User` record. Upon successful
+queueing, the transaction is committed.
+
+#### For Label
+
+When a `User` is associated with a `Label`, the `Account` deletion process is
+exactly the same as it is for an `Artist`, except that the eligibility rules are
+evaluated against all of the individual `Artists` associated with the `Label`,
+"in a loop".
 
 ## Purchasing Content
 
@@ -221,7 +283,32 @@ As such, the `User` can simply log into their `Account` at any time and see
 their full purchase history, complete with each `Order` and the associated
 `OrderItems`.
 
+### Access to Purchased Content
+
+Access to purchased content is guaranteed for a period of 90 days from the date
+of purchase. Beyond that period, it is possible that an `Artist` whose content
+a customer has purchased deletes that content from the service, in which case
+it is no longer accessible. Provided an `Artist` does not delete any of its content,
+customers will have access to it indefinitely.
+
+As such, customers are encouraged to download purchased content immediately
+and not rely on the service as a permanent archive of their purchases.
+
 ## Payments to Artists and Labels
+
+Whenever a balance is owed to an `Artist`, it is eligible to be paid on the
+last day of the month, provided the balance is above the minimum withdrawal
+threshold that the service specifies. This threshold is necessary to ensure that
+the monetary transfer does not incur fees in excess of the amount to be
+transferred (in which case the service would lose money on the transaction).
+
+The following rules apply:
+
+1. `Artist` is paid monthly, on the last day of the month.
+2. `Artist` must have at least $5.00 balance in order to be paid.
+3. `Artist` may specify a withdrawal threshold in excess of $5.00, up to the
+   maximum supported transaction amount ($20,000 USD, or equivalent in any
+   other currency). See: [Payouts Fees](https://developer.paypal.com/docs/payouts/reference/fees/)
 
 ## User Privacy
 
