@@ -296,9 +296,51 @@ and not rely on the service as a permanent archive of their purchases.
 
 ## Payments to Artists and Labels
 
+First and foremost, it is important to understand that all payment processors
+charge some type of fee for accepting online payments from customers. That fee
+is passed-on to the `Artist` or `Label`. For customers in the United States,
+that fee is 2.9% + $0.30. So, on a $10.00 USD sale, an `Artist` would incur a
+$0.59 USD fee.
+
+In addition, the service charges its own fee of 10%, with the sole purpose of
+covering its operational expenses. Given the example above, that fee would be
+$1.00 USD. In total, the `Artist` would "net" $10.00 USD - $1.59 USD = $8.41 USD,
+which is 84.1% of the order total.
+
+The service leverages a variety of PayPal APIs to send payments to `Artists` and
+`Labels`, so as to minimize the fees incurred. Which API is used depends on the
+payment amount.
+
+For payments under $10.00 USD, the Micropayments API is used, and for payments
+$10.00 USD and over, the Payouts API is used.
+
+At any given time, an `Artist` or `Label` is able to see how much is owed to them,
+and how the earned monies are to be allocated between the service operator, the payment
+processor, and the `Artist` or `Label`. All fees are articulated clearly and
+transparently.
+
+In terms of the required accounting, the `Order` metadata includes the following
+metrics of relevance:
+
+- The total purchase price.
+- The payment processor fees charged (with detailed currency conversion information,
+  if applicable).
+
+The `Payout` metadata includes:
+
+- The gross income associated with the inbound `Orders`.
+- The sum and itemized details of all payment processor fees associated therewith.
+- The sum and itemized details of all service operator fees associated therewith.
+- The calculated net earnings (gross income, less both of the aforementioned fees).
+
+For a comprehensive overview of the fees associated with each type of payment
+processor transaction, see: [PayPal Transaction Fees](https://www.paypal.com/us/webapps/mpp/merchant-fees#paypal-payouts)
+
+### Payments to Artists
+
 Whenever a balance is owed to an `Artist`, it is eligible to be paid on the
 last day of the month, provided the balance is above the minimum withdrawal
-threshold that the service specifies. This threshold is necessary to ensure that
+threshold that the service operator specifies. This threshold is necessary to ensure that
 the monetary transfer does not incur fees in excess of the amount to be
 transferred (in which case the service would lose money on the transaction).
 
@@ -310,6 +352,72 @@ The following rules apply:
    maximum supported transaction amount ($20,000 USD, or equivalent in any
    other currency). See: [Payouts Fees](https://developer.paypal.com/docs/payouts/reference/fees/)
 
+### Payments to Labels
+
+Payments made to `Labels` differ from those made to `Artists` only in that they
+are a "roll-up" of the money owed to all of the `Artists` that are associated
+with the `Label`. In other words, a single payment is made to the `Label`, instead
+of multiple, smaller payments being made to each `Artist` associated with the
+`Label` individually.
+
+_However_, `Labels` do have the option of specifying that each of their `Artists`
+is paid individually and directly, rather than through the `Label`. The `Label`
+may set this preference on a per-`Artist` basis. So, for example, if a `Label`
+has 20 `Artists`, it could specify that five of them are paid directly, and the
+`Label` receives a single payment for the other 15 `Artists` and then distributes
+the money as appropriate.
+
+The service provides this flexibility because some `Labels` take a fee of their
+own before paying their `Artists`, while others do not, or may have a different
+compensation arrangement altogether.
+
+### How Artist & Label Payments Are Processed
+
+On the last day of each month, a scheduled task is run, which computes the payouts
+that are owed to each `Artist` and `Label`.
+
+Crucially, this task is "idempotent"; that is, it can be run any number of times
+without changing the result. Consequently, if the task is not run on-time, or fails
+to any extent, it can be run again, or even repeatedly, until it completes. Upon
+completion, the results for the period (month) in question are stored, and any
+subsequent attempt to calculate the results for the same period will be ignored.
+
+For such a task to function, it must receive the target (destination) period,
+i.e., the month and year, as arguments. For example:
+
+```php
+php artisan payout:calculate --month=1 --year=2021
+```
+
+The task runs within the context of a database transaction, so that if it fails
+in any capacity, the computations are discarded completely. If run successfully,
+the `Payout` and `PayoutDetail` results are stored with the following metadata:
+
+`Payout` (one row for _all_ payout transactions for the period):
+
+- Month
+- Year
+- Sum of all fields described in `Payments to Artists & Labels`
+
+`PayoutDetail` (one row for _each_ `CatalogEntity` to be paid):
+
+- All fields described in `Payments to Artists & Labels`
+- `CatalogEntity` ID
+
+Additionally, a service operator staff member must review and approve each
+`PayoutDetail` record in order for the associated payment to be made. Upon approval,
+the staff member's `user_id` is recorded, along with other relevant metadata.
+
 ## User Privacy
 
+The service operator complies with GDPR and all applicable laws in the countries
+in which it operates.
+
 ## Security
+
+- All payment information is secured through the third-party payment processor's
+  (PayPal's) network.
+- Customer payment information is never stored; transactions are processed in
+  real-time and only the results (pass/fail and amount) are stored.
+- `User` passwords are stored securely, in hashed format, using the most current
+  encryption standards.
