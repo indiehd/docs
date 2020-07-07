@@ -296,42 +296,147 @@ and not rely on the service as a permanent archive of their purchases.
 
 ## Payments to Artists and Labels
 
+### Fees
+
 First and foremost, it is important to understand that all payment processors
 charge some type of fee for accepting online payments from customers. That fee
 is passed-on to the `Artist` or `Label`. For customers in the United States,
 that fee is 2.9% + $0.30. So, on a $10.00 USD sale, an `Artist` would incur a
-$0.59 USD fee.
+$0.59 USD fee. For customers outside the United States, there is an additional
+3.0% charge for any currency conversion and a 1.5% international transaction fee
+to receive payments from another country.
 
 In addition, the service charges its own fee of 10%, with the sole purpose of
 covering its operational expenses. Given the example above, that fee would be
 $1.00 USD. In total, the `Artist` would "net" $10.00 USD - $1.59 USD = $8.41 USD,
 which is 84.1% of the order total.
 
-The service leverages a variety of PayPal APIs to send payments to `Artists` and
-`Labels`, so as to minimize the fees incurred. Which API is used depends on the
-payment amount.
+Finally, the service operator's payment processor charges a fee to pay out an
+`Artist` or `Label`. The exact fees associated with `Artist` and `Label` payouts
+are variable and depend upon the transaction amount, the `Country` in which
+the `Artist's` or `Label's` `CatalogEntity` resides, and the target currency.
+In order to minimize the payout fees incurred, the service leverages a variety
+of PayPal APIs to send payments to `Artists` and `Labels`.
 
-For payments under $10.00 USD, the Micropayments API is used, and for payments
-$10.00 USD and over, the Payouts API is used.
+For payments under $10.00 USD, the Micropayments API is used. For `CatalogEntities` inside the
+United States, the fee is 5.0% of the transaction amount, plus a fixed fee based
+on the currency (USD is $0.05, for example). For `CatalogEntities` outside the
+United States, the fee is 6.5%, plus the same fixed fee based on the currency.
+
+For payments $10.00 USD and over, the Payouts API is used. For `CatalogEntities`
+inside the United States, the payment processor charges a flat fee of $0.25 USD,
+whereas outside the U.S., the fee is 2.0% of the payout amount, up to a maximum
+of $20.00 USD (or target currency equivalent).
+
+The payment processor's fee schedule is complicated, by nature, and the fact that an `Order` can
+contain more than one `Artist's` `Songs` compounds the complexity even further,
+because the fees must be allocated to each `Artist` in proportion to the
+`OrderItems` from which the `Order` is composed.
+
+For example, if an `Order` contains two different `Artist's` `Songs`, and
+contains 10 `Songs` in total, 5 of which are associated with each `Artist`,
+and each `Song` is priced at $1.00 USD, the two `Artists` would share the fees
+equally, i.e., "split the fees down the middle". However, 8 of the 10 `Songs`
+belong to one `Artist`, that `Artist` would incur 80% of all associated fees,
+and the other `Artist` 20%. Of course, in reality, the `Songs` may not be priced
+the same, in which case the computations are even less straightforward.
 
 At any given time, an `Artist` or `Label` is able to see how much is owed to them,
 and how the earned monies are to be allocated between the service operator, the payment
-processor, and the `Artist` or `Label`. All fees are articulated clearly and
-transparently.
+processor, and the `Artist` or `Label`. Furthermore, an `Artist` or `Label` is
+able to see what the payout fee will be the next time a payout occurs. All fees
+are articulated clearly and transparently.
+
+In the event of transaction reversals (chargebacks and refunds), the fees
+assessed are itemized and explained clearly.
+
+#### Chargebacks
+
+A "chargeback" occurs when a customer disputes a purchase and the customer's bank
+reverses the transaction, thereby forcing the merchant to return the funds.
+
+In consideration of this service, in particular, chargebacks are exceedingly
+rare, for several reasons:
+
+1. When dealing with intangible products, all the shipping-related reasons that
+lead to chargebacks (e.g., lost and stolen packages) do not apply, and a customer
+cannot reasonably claim, "I never received the item" unless there is a technical
+problem with the file delivery/download mechanism.
+2. Digital audio downloads are not "high-dollar" items, so the incentive for so-called
+["Friendly Fraud"](https://chargebacks911.com/chargebacks/#cbFriendlyFraud) simply
+does not exist, thereby reducing the likelihood of chargebacks even further.
+3. The service operator is abundantly cautious with regard to fraud. Any time a
+suspicious transaction occurs, it is reviewed carefully, and if deemed risky,
+the transaction is refunded immediately to mitigate the risk of a chargeback.
+Given that there is no "loss in inventory" when dealing with digital products,
+erring on the side of caution (by issuing a refund) when a transaction smells
+the least bit like fraud is the best approach.
+
+Despite the extremely unlikely event of a chargeback, a written policy is required
+for the sake of transparency.
+ 
+The service operator incurs a $20.00 USD fee for a chargeback, which is passed
+on to the `Artist`(s) in the form of a balance reduction. If the `Artist` is not
+already owed a balance that is sufficient to cover the chargeback fee, a negative
+balance results. While the service operator will not demand a monetary payment
+from the `Artist` to reconcile the negative balance, any future sales will be
+applied to the negative balance before the `Artist` is eligible to be paid out.
+
+In the event that more than one `Artist's` `Songs` are included in an `Order`
+that is subjected to a chargeback, the associated fee will be allocated in
+proportion to each `Artist's` share of the `Order` total.
+
+Given that a chargeback can be initiated for up to 90 days after the initial
+purchase, and possibly longer, and the matter could remain unresolved for many
+months after that, it is entirely possible that an `Artist` or `Label` has already
+been paid out in relation to a given transaction before the chargeback fee is
+assessed. For this reason, the service operator may, at any time, assess a
+chargeback fee in relation to a previous transaction.
+
+#### Refunds
+
+In relation to this service, in particular, requests for a refund are nearly as
+rare as chargebacks. In the vast majority of cases, refunds are issued because
+a transaction appears to be fraudulent, i.e., made with a stolen payment card.
+
+In the event that the service operator decides, at its sole discretion, to issue
+a refund to a customer, the transaction will simply be reversed and the associated
+monies debited from the balance owed to the `Artist` or `Label`.
+
+The only nuance to refunds is that the payment processor does not refund the fees
+associated with the original transaction. Accordingly, the service operator passes
+these fees on to the `Artist` or `Label`. As with chargebacks, this can result in
+a negative balance owed to the `Artist` or `Label` (see `Chargebacks` section
+for additional details as to the implications of a negative balance).
+
+In the event that more than one `Artist's` `Songs` are included in an `Order`
+that is refunded to the customer, the fee associated with the original payment
+will be allocated in proportion to each `Artist's` share of the `Order` total.
+
+Refunds share another property of chargebacks, which is that they can be issued
+well after the intial purchase was made, and can therefore be assessed after
+and `Artist` or `Label` has already been paid out in relation to a given transaction.
+For this reason, the service operator may, at any time, issue a refund to a customer
+in relation to a previous transaction, and adjust the balance owed to an
+`Artist` or `Label` accordingly.
+
+### Record-Keeping Requirements
 
 In terms of the required accounting, the `Order` metadata includes the following
 metrics of relevance:
 
 - The total purchase price.
+- The price charged for each associated `OrderItem`.
 - The payment processor fees charged (with detailed currency conversion information,
   if applicable).
 
 The `Payout` metadata includes:
 
 - The gross income associated with the inbound `Orders`.
-- The sum and itemized details of all payment processor fees associated therewith.
+- The sum and itemized details of all **inbound** payment processor fees associated therewith.
 - The sum and itemized details of all service operator fees associated therewith.
-- The calculated net earnings (gross income, less both of the aforementioned fees).
+- The sum and itemized details of all **outbound** payment processor fees associated therewith.
+- The calculated net earnings (gross income, less each of the aforementioned fees).
 
 For a comprehensive overview of the fees associated with each type of payment
 processor transaction, see: [PayPal Transaction Fees](https://www.paypal.com/us/webapps/mpp/merchant-fees#paypal-payouts)
@@ -385,7 +490,7 @@ subsequent attempt to calculate the results for the same period will be ignored.
 For such a task to function, it must receive the target (destination) period,
 i.e., the month and year, as arguments. For example:
 
-```php
+```
 php artisan payout:calculate --month=1 --year=2021
 ```
 
