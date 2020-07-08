@@ -509,14 +509,34 @@ the `Payout` and `PayoutDetail` results are stored with the following metadata:
 - All fields described in `Payments to Artists & Labels`
 - `CatalogEntity` ID
 
-Additionally, a service operator staff member must review and approve each
+This task only _computes_ the monies owed to each `Artist` and `Label`.
+
+Once the task has run, a service operator staff member must review and approve each
 `PayoutDetail` record in order for the associated payment to be made. Upon approval,
 the staff member's `user_id` is recorded, along with other relevant metadata.
+
+As soon as each `PayoutDetail` record has been approved, another task is run to
+make the API calls necessary to pay out every pending recipient:
+
+```
+php artisan payout:send
+```
+
+Like the payout calculation task, this take must be idempotent, so it can run
+repeatedly without side-effects, which requires the results of each API call to
+be recorded alongside the data to which it applies.
 
 ## User Privacy
 
 The service operator complies with GDPR and all applicable laws in the countries
 in which it operates.
+
+The service operator does not share any personal information with third parties.
+
+Any personal data that is stored can be expunged permanently upon `Account`
+deletion. Some metadata must be retained indefinitely for historical
+reporting and accounting purposes, but it is anonymized in a way that makes it
+impossible to relate to the deleted `User`/`Account`.
 
 ## Security
 
