@@ -71,14 +71,15 @@ price", if desired.
 
 #### Relationships
 
-- `Album` `hasMany()` `Songs`
+- `Album` `hasMany()` `Song`
 - `Album` `belongsTo()` `Artist`
-- `Album` `belongsToMany()` `Genres`
+- `Album` `belongsToMany()` `Genre`
 - `Album` `belongsTo()` `Deleter (User)`
-- `Album` `morphMany()` `Copies Sold (OrderItem)`
+- `Album` `morphMany()` copies sold (`OrderItem`)
 
 #### Access Policy
 
+- A `Label` has the same access as any `Artist` under its control.
 - An `Artist` may create an `Album`.
 - Anybody may view an `Album` if it is active; if inactive, only the owning
   `Artist` may view it.
@@ -125,6 +126,26 @@ is essentially a "moniker"; it does not have to be a "real name", and it could
 even be a phrase, such as _The Artist Formerly Known as Prince_, to cite a 
 familiar example.
 
+An `Artist` cannot exist without an associated `CatalogEntity`.
+
+#### Relationships
+
+- `Artist` `morphOne()` `Catalogable`
+- `Artist` `morphOne()` `Profile`
+- `Artist` `belongsTo()` `Label`
+- `Artist` `hasMany()` `Song` through `Album`
+- `Artist` `hasMany()` `Album`
+- `Artist` `morphMany()` `Featured`
+
+#### Access Policy
+
+- A `Label` has the same access as any `Artist` under its control.
+- Anybody may create an `Artist`, but it is effectively disabled until approved
+  (see `CatalogEntity` access policy).
+- The `User` associated with an `Artist's` owning `CatalogEntity` may set the
+  `label_id` field on the `Artist` object by way of accepting a `Label's`
+  invitation to join the `Label`.
+
 ### CatalogEntity
 
 In essence, a `CatalogEntity` is a person or company
@@ -157,6 +178,35 @@ obligations under the service's Terms of Use.
 
 **`CatalogEntity` information is private.**
 
+#### Relationships
+
+- `CatalogEntity` `morphTo()` `Catalogable`
+- `CatalogEntity` `belongsTo()` `User`
+- `CatalogEntity` `belongsTo()` approver (`User`)
+- `CatalogEntity` `belongsTo()` deleter (`User`)
+- `CatalogEntity` `belongsTo()` `Country`
+
+#### Access Policy
+
+- Anybody may create a `CatalogEntity` and the associated object (`Artist` or
+  `Label`), but a `CatalogEntity` is inactive, by default, until a service
+  operator staff member approves it, manually, at which time the `is_active`
+  field is set to `true` and the `approver_id` field is set to the approving
+  user's ID.
+- A `CatalogEntity's` owning `User` may modify any of the object's informational
+  fields: `first_name`, `last_name`, `company`, `title`, `email`, `address_one`,
+  `address_two`, `city`, `territory`, `country_code`, `postal_code`, `phone`,
+  `alt_phone`.
+- A `CatalogEntity's` owning `User` may soft-delete the object, in which case
+  the `deleter_id` field is set to the `User's` ID and the `deleted_at` field
+  is set to the current time.
+- A service operator staff member may set the `is_active` field to `false`, which
+  renders the `CatalogEntity` inactive, thereby causing it and any associated
+  `Artists` (in a `Label's` case) and `Albums` (in an `Artist's` case) to be
+  inaccessible on all API endpoints. To be clear, if a `Label` is set to inactive,
+  all of its associated `Artists` and all _their_ associated `Albums` are
+  implicitly inactive.
+
 ### Country
 
 A `Country` refers to the geographical meaning of the word and is used in
@@ -182,10 +232,20 @@ United States, but it is entirely possible that a different and unrelated servic
 operator installs the software and operates a service running thereon, in which
 case the service might support an entirely different set of `Countries`.
 
+#### Relationships
+
+- `Country` `hasMany()` `Account`
+- `Country` `hasMany()` `Profile`
+- `Country` `hasMany()` `CatalogEntity`
+
+#### Access Policy
+
+- The `Country` list is static and therefore read-only.
+
 ### Featured
 
-A `Featured` `Artist` is featured prominently within the digital catalog, so that
-it may reach a broader audience.
+A `Featured` `Artist` or `Label` is featured prominently within the digital
+catalog, so that it may reach a broader audience.
 
 #### Logic for Featuring Artists
 
@@ -196,7 +256,19 @@ To be featured, an `Artist` must meet the following criteria:
 3. Must have at least one `Song` on the aforementioned `Album` whose status is active.
 4. Must not have been featured in the past 180 days.
 
-Featured `Artists` are selected at random and are featured for a period of 7 days.
+To be featured, a `Label` must have at least one `Artist` that meets the above
+criteria.
+
+Featured `Artists` and `Labels` are selected at random and are featured for a
+period of 7 days.
+
+#### Relationships
+
+- `Featured` `morphTo()` featurable (`Artist` or `Label`)
+
+#### Access Policy
+
+- A scheduled task populates the `Featured` list, which is otherwise read-only.
 
 ### FlacFile
 
@@ -221,6 +293,32 @@ purchased music in FLAC format, in addition to several other formats:
 - WAV
 - MP3
 - AAC
+
+#### Relationships
+
+- `FlacFile` `hasMany()` `Song`
+
+#### Access Policy
+
+- Any `User` that is associated with a `CatalogEntity` whose `approved_at` field
+  is non-null, and whose `deleted_at` field is null, may create a `FlacFile`.
+- Anybody may read a `FlacFile` record from the _database_, but not necessarily
+  the corresponding binary file from the filesystem.
+- Only customers who have purchased access to a given `FlacFile` may retrieve
+  the associated binary data from the filesystem.
+- The `User` who is associated with a given `CatalogEntity` may delete a `FlacFile`
+  that is under its control, but only under the following conditions:
+  - The `FlacFile` is being overwritten and is not associated with any other `Song`.
+    - If the `FlacFile` _is_ associated with another `Song`, the `User` is
+      prompted: "The audio file that you're replacing is associated with other
+      songs. Which of those songs, if any, should be updated with this audio file?"
+      (The `User` is presented with a list, and appropriate UI controls, to
+      select which `Songs'` relationships, if any, should be updated.) If the
+      `User` selects every `Song`, the "orphaned" `FlacFile` is deleted, along
+      with its binary filesystem data.
+  - A `Song` is deleted that would cause the `FlacFile` to be "orphaned"; in such
+    cases, the `FlacFile` is deleted, along with the associated binary filesystem
+    data.
 
 ### Genre
 
