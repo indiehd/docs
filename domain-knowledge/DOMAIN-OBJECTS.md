@@ -333,6 +333,20 @@ which, upon request, are queued for administrative approval. This policy prevent
 `Artists` from adding duplicate `Genres` (i.e., with alternate spellings) and
 from using gratuitous profanity, inconsistent formatting, etc.
 
+#### Relationships
+
+- `Genre` `belongsToMany()` `Album`
+
+#### Access Policy
+
+- Anybody may read `Genres` whose `approved_at` field is non-null.
+- Only service operator staff members may read `Genres` whose `approved_at` field
+  is null.
+- Any `CatalogEntity` may create a new `Genre`, _however_, a service operator
+  staff member must approve the record before it is visible to anybody else.
+  Upon approval, the `approved_at` field is set to the current date, and the
+  `approver_id` is set to the `User` ID of the approving staff member.
+
 ### Label
 
 A `Label` refers to what is known in music-industry parlance as a "record label".
@@ -340,12 +354,19 @@ While a complex entity in practice, a "record label", or `Label`, for the purpos
 at hand, is a collection of `Artists`.
 
 In a typical artist-label relationship, the `Label` exerts complete managerial
-control over the `Artist`, and so the same is true here. A `Label` is
-able to perform _any_ action that an `Artist` would normally be able to perform,
-for any `Artist` under its control.
+control over the `Artist`, and so the same is true here.
+
+#### Relationships
+
+- `Label` `morphOne()` `CatalogEntity` (`Artist` or `Label`)
+- `Label` `morphOne()` `Profile` (`Artist` or `Label`)
+- `Label` `hasMany()` `Artist`
+- `Label` `hasMany[Album]Through[Artist]()`
 
 #### Access Policy
 
+- A `Label` is able to perform _any_ action that an `Artist` would normally be
+  able to perform, for any `Artist` under its control.
 - Due to the potential for conflicts of interest to arise between an `Artist` and a
   `Label` , were they not controlled by the same entity/account-holder, a given
   `Artist` that is associated with a `Label` cannot be controlled separately by
@@ -362,6 +383,18 @@ If the customer is not authenticated (not logged-in), a randomly-generated
 token must be passed with each request that acts upon the `Order`. This token is
 a "pseudo-random" UUID (v4) that is resistant to brute-force attacks and
 unauthorized tampering.
+
+#### Relationships
+
+- `Order` `hasMany()` `OrderItem`
+- `Order` `belongsTo()` `User`
+
+#### Access Policy
+
+- Anybody may create an `Order`.
+- An authenticated `User` may view their own `Orders`, i.e., those whose
+  `customer_id` field equals the `User` ID.
+- Anybody may perform any action on an `Order` if they provide its token (UUID).
 
 ### OrderItem
 
@@ -407,6 +440,26 @@ the $0.35 price prior to adding the `Song` to the cart, and any applicable
 discount is applied thereafter, the reason for the discount is confusing and
 unintuitive. Accordingly, the authors have chosen not to pursue such a pricing
 structure as yet.
+
+#### Access Policy
+
+- Any `Artist` may create a `Song`.
+- Anybody may view a `Song` if its `is_active` flag is truthy, but only as long
+  as the related `Album`'s `is_active` flag is also truthy.
+- If a `Song`'s or its related `Album`'s `is_active` flag is falsey, only the
+  owning `Artist`, or anybody who has purchased access to it, may view the `Song`.
+- All rules that apply to the `is_active` flag apply equally to the
+  soft-deletion (`deleted_at`) flag.
+- Once the associated `Album` is activated, `Songs` cannot be added, deleted,
+  or reordered. If the number or order of `Songs` on an `Album` must be changed,
+  the `Album` can be deleted (if nobody has ever purchased it, whether in part
+  or in full) or disabled (if anybody has ever purchased it, in part or in full).
+- A `Song` cannot be deleted directly; a `Song` is deleted only when the
+  associated `Album` is deleted. The rules that apply to `Album` deletion
+  essentially "cascade" down to `Song` deletion, with regard to soft-deletion vs.
+  force-deletion: if the `Album` is force-deleted, so are all associated `Songs`.
+  If the `Album` is soft-deleted, any `Songs` that have ever been purchased are
+  soft-deleted.
 
 ### User
 
