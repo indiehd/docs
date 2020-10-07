@@ -10,6 +10,7 @@
     "husky": "^4.3.0"
   },
   "scripts": {
+    "serve": "npx docsify-cli serve .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },

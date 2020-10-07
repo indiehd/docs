@@ -9,3 +9,13 @@ This document repository aims to be a comprehensive guide to all development-rel
 Thanks for your interest and support!
 
 -indieHD, LLC (and team)
+
+# Contributing
+
+The indieHD documentation site is built using `docsify`. To start a local serve run:
+
+```shell
+npm run serve
+```
+
+By default the site will run on http://localhost:3000.
