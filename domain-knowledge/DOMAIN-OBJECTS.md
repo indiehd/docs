@@ -75,7 +75,7 @@ price", if desired.
 - `Album` `belongsTo()` `Artist`
 - `Album` `belongsToMany()` `Genre`
 - `Album` `belongsTo()` `Deleter (User)`
-- `Album` `morphMany()` copies sold (`OrderItem`)
+- `Album` `morphMany()` copies sold (`DigitalAsset`)
 
 #### Access Policy
 
@@ -247,6 +247,14 @@ case the service might support an entirely different set of `Countries`.
 A `Featured` `Artist` or `Label` is featured prominently within the digital
 catalog, so that it may reach a broader audience.
 
+#### Relationships
+
+- `Featured` `morphTo()` featurable (`Artist` or `Label`)
+
+#### Access Policy
+
+- A scheduled task populates the `Featured` list, which is otherwise read-only.
+
 #### Logic for Featuring Artists
 
 To be featured, an `Artist` must meet the following criteria:
@@ -261,14 +269,6 @@ criteria.
 
 Featured `Artists` and `Labels` are selected at random and are featured for a
 period of 7 days.
-
-#### Relationships
-
-- `Featured` `morphTo()` featurable (`Artist` or `Label`)
-
-#### Access Policy
-
-- A scheduled task populates the `Featured` list, which is otherwise read-only.
 
 ### FlacFile
 
@@ -409,6 +409,20 @@ website URL, etc.
 
 **`Profile` information is public.**
 
+#### Relationships
+
+- `Profile` `morphTo()` profilable (`Artist` or `Label`)
+- `Profile` `belongsTo()` `Country`
+
+#### Access Policy
+
+- Any `Artist` or `Label` may create a `Profile`.
+- Anybody may view a `Profile`.
+- An `Artist` or `Label` may update its own `Profile`.
+- An `Artist` or `Label` may force-delete its own `Profile`.
+- When an `Artist` or `Label` is deleted, any associated `Profile` is likewise
+  deleted.
+
 ### Song
 
 A `Song` is exactly what it sounds like. An `Album` contains one or more `Songs`.
@@ -441,6 +455,13 @@ discount is applied thereafter, the reason for the discount is confusing and
 unintuitive. Accordingly, the authors have chosen not to pursue such a pricing
 structure as yet.
 
+#### Relationships
+
+- `Song` `belongsTo()` `Album`
+- `Song` `belongsTo()` `FlacFile`
+- `Song` `morphMany()` copies sold (`DigitalAsset`) 
+- `Song` `morphOne()` asset (`DigitalAsset`) 
+
 #### Access Policy
 
 - Any `Artist` may create a `Song`.
@@ -467,7 +488,14 @@ A `User` contains the bare-minimum information required for an entity to authent
 `username` (or `email`) and `password` (which is stored as a hash, and not
 the literal password string).
 
-### UuidModel
+#### Relationships
 
-The `UuidModel` is merely a container object that is responsible for generating
-the UUID (v4) associated with an `Order`.
+- `User` `hasOne()` `Account`
+- `User` `hasMany()` entities (`CatalogEntities`)
+
+#### Access Policy
+
+- Anybody may create a `User`.
+- Only the authenticated owner may view a `User`.
+- Only the authenticated owner may update a `User`.
+- Only the authenticated owner may delete a `User`.
