@@ -183,12 +183,12 @@ immediately.
 To reopen the account, the `User` may simply log in again and confirm the intention
 to reopen the account.
 
-Account deletion, on the other hand, is implemented with "hard-deletion", so it
+`Account` deletion, on the other hand, is implemented with "hard-deletion", so it
 is permanent and cannot be undone. 
 
 ### For Non-Artist/Label
 
-When a `User` that is not associated with an `Artist` or `Label`, the following
+When a `User` is not associated with an `Artist` or `Label`, the following
 objects are deleted *inside a transaction* (and in this order, to prevent
 foreign key failures):
 
@@ -204,35 +204,51 @@ foreign key failures):
 When a `User` is associated with an `Artist`, additional provisions apply when
 deleting an `Account`.
 
-When an `Artist` requests that its `Account` be deleted, the deletion is queued,
-pending an eligibility check is against the following rules:
+When an `Artist` requests that its `Account` be deleted, a `Deletion` record is
+created, which references the `User`.
 
-1. All albums have been disabled (this prevents customers from making further
+Every so often, a scheduled task is executed that retrieves all `Deletion`
+records and evaluates their eligibility against the following rules:
+
+1. All `Albums` have been disabled (this prevents customers from making further
    purchases, which would extend the deletion timeline for 90 more days).
 2. All monies owed to the `Artist` have been paid to its associated `CatalogEntity`.
 3. 90 days have elapsed since a customer last purchased the `Artist's` content.
-4. All of the `Artist's` albums have been deleted.
+4. All of the `Artist's` albums have been soft-deleted.
 5. All of the `Artist's` uploaded images have been deleted.
 
-Once every 24 hours, eligibility is evaluated, and if any of those statements is
-false, the `Account` is ineligible for deletion, and the service will complete
-any steps that it can, automatically, before the next evaluation.
+The service attempts to satisfy each requirement, where applicable, before
+evaluating it for truth. For example, before evaluating the first rule, the
+system attempts to disable all of the `User's` `Albums`, and then it verifies
+that all of the `User's` `Albums` are in fact disabled before proceeding to the
+next rule. The service cannot directly take action against some rules, however,
+such as rules 2 and 3, each of which is essentially a "waiting game". When the
+service encounters a rule that evaluates to false, it stops processing the
+deletion and will re-attempt on its next scheduled execution.
 
-Eventually, all statements will evaluate as true, at which time the `Account`,
-and all associated content (database records and files) is hard-deleted.
-
-Upon successful deletion, the following objects are deleted, *inside a transaction*
-(and in this order, to prevent foreign key failures):
+Once all statements evaluate to true, the `User` model, _with_ the `Account` and
+`CatalogEntity` relationships eager-loaded, is copied into the local variable
+scope, then the following objects are deleted, *inside a transaction* (and in
+this order, to prevent foreign key failures):
 
 - `OrderItem`
 - `Order`
 - `Profile`
+- `CatalogEntity`
 - `Account`
 - `User`
 
-*Before the transaction is committed*, a confirmation email message is queued to
-be sent to the email address associated with the `User` record. Upon successful
-queueing, the transaction is committed.
+Upon success, the confirmation email messages are queued to be sent to _each
+unique_ email address associated with the `User`, `Account`, and `CatalogEntity`
+models that were previously copied into the local variable scope. The message
+content is the same in all cases; it addresses the user by `$account->first_name
+$account->last_name` and explains that they deleted all their data, while making
+explicit reference to the `Artist` or `Label` by its `moniker`.
+
+Once all email jobs have been queued successfully, the `Deletion` record is
+deleted. If a queued email job fails terminally, the `User` will not be notified
+that their data was deleted successfully, which is an unavoidable side-effect of
+truly and thoroughly expunging all of the `User's` data upon request.
 
 #### For Label
 
