@@ -317,11 +317,11 @@ structure as yet.
 
 - Any `Artist` may create a `Song`.
 - Anybody may view a `Song` if its `is_active` flag is truthy, but only as long
-  as the related `Album`'s `is_active` flag is also truthy.
-- If a `Song`'s or its related `Album`'s `is_active` flag is falsey, only the
+  as the related `Album's` `is_active` flag is also truthy.
+- If a `Song's` or its related `Album's` `is_active` flag is falsey, only the
   owning `Artist`, or anybody who has purchased access to it, may view the `Song`.
-- All rules that apply to the `is_active` flag apply equally to the
-  soft-deletion (`deleted_at`) flag.
+- All rules that apply to the `is_active` flag apply inversely to the
+  soft-deletion (`deleted_at`) flag, with respect to truthy and falsey values.
 - Once the associated `Album` is activated, `Songs` cannot be added, deleted,
   or reordered. If the number or order of `Songs` on an `Album` must be changed,
   the `Album` can be deleted (if nobody has ever purchased it, whether in part
