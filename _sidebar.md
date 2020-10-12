@@ -15,7 +15,7 @@
     * [Domain Objects (Models)](domain-knowledge/DOMAIN-OBJECTS.md)
     * [Business Rules](domain-knowledge/BUSINESS-RULES.md)
 
-* **Web Api**
+* **Web API**
     * [Introduction](web-api/README.md)
     * [Patterns We Follow](web-api/PATTERNS.md)
     * [Testing](web-api/TESTS.md)
@@ -29,5 +29,9 @@
     * [Testing](website-ui/TESTS.md)
     * [Tooling](website-ui/TOOLS.md)
     * [Style Guide](website-ui/STYLE-GUIDE.md)
+
+* **Velkart**
+  * [Domain Objects (Models)](velkart/domain-knowledge/DOMAIN-OBJECTS.md)
+  * [Business Rules](velkart/domain-knowledge/BUSINESS-RULES.md)
 
 * [The Docs Repository](DOCSREPO.md)
