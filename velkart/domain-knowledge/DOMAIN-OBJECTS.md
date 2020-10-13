@@ -3,6 +3,19 @@
 A `Product` is self-explanatory and consists of metadata such as `name`,
 `description`, `price`, etc.
 
+#### Relationships
+
+- `Product` `hasMany()` `ProductImages`
+- `Product` `belongsToMany()` `Attributes`
+- `Product` `belongsToMany()` `Orders`
+
+#### Access Policy
+
+- Any `Artist` may create a `Product` (via creating a `Song`).
+- Anybody may view any `Product`.
+- Only the owning `Artist` may update a `Product`.
+- Only the owning `Artist` may delete a `Product` (via deleting a `Song`).
+
 ### Cart
 
 Much like a real shopping cart, a `Cart` is merely the vehicle by which
@@ -11,24 +24,27 @@ checkout counter, at which time the products are added to an order."
 
 #### Relationships
 
-- `Cart` `hasOne()` `Order`
+- *None*
 
 #### Access Policy
 
 - Anyone may create a `Cart`.
-- Anone may vi
+- Anybody may perform any action on a `Cart` if they provide its identifier
+  (UUID). This identifier is a "pseudo-random" UUID (v4) that is resistant to
+  brute-force attacks and unauthorized tampering, and is generated when the
+  `Cart` is created.
 
 ### Order
 
-An `Order` is a mechanism by which to collate `Products`. An `Order` cannot
-exist without reference to an existing `Cart`.
+An `Order` is a mechanism by which to collate `Products`.
 
 #### Relationships
 
 - `Order` `belongsToMany()` `Products`
-- `Order` `belongsTo()` `Cart`
 
 #### Pivots
+
+##### `OrderProduct`
 
 An `OrderProduct` differs from a `Cart` item in that the `Cart` item is
 ephemeral and short-lived, whereas an `OrderProduct` is a "permanent record".
@@ -48,10 +64,11 @@ item directly, as the `Product` is the official "source of truth".)
 - Anybody may create an `Order`.
 - An authenticated `User` may view their own `Orders`, i.e., those whose
   `customer_id` field equals the `User` ID.
-- Anybody may perform any action on an `Order` if they provide its token (UUID).
-  This token is a "pseudo-random" UUID (v4) that is resistant to brute-force
-  attacks and unauthorized tampering, and is generated when the `Order` is
-  created.
+- Anybody may perform any action on an `Order` if they provide its identifier
+  (UUID). This identifier is a "pseudo-random" UUID (v4) that is resistant to
+  brute-force attacks and unauthorized tampering, and is generated when the
+  `Order` is created.
+- An `Order` cannot be deleted.
 
 ### Payment
 
@@ -67,3 +84,10 @@ so, an `Order's` initial status will always be "paid" or equivalent.
 #### Relationships
 
 - `Payment` `belongsTo()` `Order`
+
+#### Access Policy
+
+- Anybody may create a `Payment`.
+- The ability to view a `Payment` is granted via the associated `Order`.
+- A `Payment` cannot be updated.
+- A `Payment` cannot be deleted.
