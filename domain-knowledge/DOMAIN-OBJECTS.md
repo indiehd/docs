@@ -15,7 +15,7 @@ and accompanying third-party tools that comprise the indieHD suite.
 ### Service Operator
 
 The "Service Operator" refers to the entity that operates the "Service". indieHD, LLC,
-operates a "Service Instance", but is not necessarily the sole, exclusive "Service Operator". 
+operates a "Service Instance", but is not necessarily the sole, exclusive "Service Operator".
 
 Given that the indieHD suite is licensed in such a way that any entity may setup a
 "Service Instance" and act as the "Service Operator" thereof, a "Service Operator"
@@ -83,14 +83,14 @@ term "acquisition" is used in favor of "purchase" because `Artists` and `Labels`
 may elect not to charge money for their works under certain circumstances.
 
 The `CatalogEntity` concept is best illustrated by example:
- 
+
 - A traditional "label manager" might, for example, be the `CatalogEntity` that is
- associated with a given record label. Consequently, the address, phone number,
- and other information in the `CatalogEntity` object might be those of a
- corporate record label.
+  associated with a given record label. Consequently, the address, phone number,
+  and other information in the `CatalogEntity` object might be those of a
+  corporate record label.
 - By contrast, a single individual making music in a home studio and publishing
- it under a personal moniker might use his own name and home address when
- supplying the required `CatalogEntity` information.
+  it under a personal moniker might use his own name and home address when
+  supplying the required `CatalogEntity` information.
 
 When a `User` requests an `Artist` or `Label` `Profile`, they are asked, in effect, "Who
 should we contact if we need to reach the `Artist` or `Label` in an official,
@@ -140,7 +140,7 @@ obligations under the service's Terms of Use.
 An `Artist` is an entity (the term "person[s]" is avoided here because it's
 needlessly specific) who asserts authorship over an `Album`. An `Artist's` name
 is essentially a "moniker"; it does not have to be a "real name", and it could
-even be a phrase, such as _The Artist Formerly Known as Prince_, to cite a 
+even be a phrase, such as _The Artist Formerly Known as Prince_, to cite a
 familiar example.
 
 An `Artist` cannot exist without an associated `CatalogEntity`.
@@ -194,7 +194,7 @@ control over the `Artist`, and so the same is true here.
 `Artists` and `Labels` may, _optionally_, complete a `Profile`. The `Profile's`
 only purpose is to increase search-engine visibility and educate the public
 about the `Artist` or `Label`. `Profile` fields include city, country, official
-website URL, etc. 
+website URL, etc.
 
 **`Profile` information is public.**
 
@@ -223,7 +223,7 @@ the same time. If specified, this price must necessarily be lower than the sum
 of all the individual `Song` prices (as each `Song` also has its own price).
 
 The `Artist` who owns an `Album` (not the service operator) sets its "full album
-price", if desired. 
+price", if desired.
 
 #### Relationships
 
@@ -268,7 +268,7 @@ is necessary to employ a more complicated discounting strategy. This implementat
 employs the "Distributing Percentage Off Discounts" strategy as described in
 Microsoft's Commerce Server documentation:
 
-https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee785199(v=cs.20)?redirectedfrom=MSDN 
+https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee785199(v=cs.20)?redirectedfrom=MSDN
 
 This discounting strategy is not specific to Microsoft Commerce Server; it is a
 widely understood technique, but Microsoft's explanation is clear, concise,
@@ -310,8 +310,8 @@ structure as yet.
 
 - `Song` `belongsTo()` `Album`
 - `Song` `belongsTo()` `FlacFile`
-- `Song` `morphMany()` copies sold (`DigitalAsset`) 
-- `Song` `morphOne()` asset (`DigitalAsset`) 
+- `Song` `morphMany()` copies sold (`DigitalAsset`)
+- `Song` `morphOne()` asset (`DigitalAsset`)
 
 #### Access Policy
 
@@ -348,8 +348,8 @@ The service favors the FLAC format for a number of reasons:
 - FLAC is unencumbered by the many patents and royalty fees that plague competing formats.
 - FLAC encoding and decoding tools are cost-free and open-source software.
 - FLAC is technically superior to most, if not all, competing formats, offering
- the most features and flexibility.
- 
+  the most features and flexibility.
+
 When customers purchase music from the catalog, they are able to download their
 purchased music in FLAC format, in addition to several other formats:
 
@@ -472,30 +472,3 @@ case the service might support an entirely different set of `Countries`.
 #### Access Policy
 
 - The `Country` list is static and therefore read-only.
-
-### Order
-
-An `Order` is a mechanism by which to associate `OrderItems`. Anybody &mdash;
-even unauthenticated "guests" &mdash; may create an `Order` (i.e., by adding an
-item to the shopping cart).
-
-If the customer is not authenticated (not logged-in), a randomly-generated
-token must be passed with each request that acts upon the `Order`. This token is
-a "pseudo-random" UUID (v4) that is resistant to brute-force attacks and
-unauthorized tampering.
-
-#### Relationships
-
-- `Order` `hasMany()` `OrderItem`
-- `Order` `belongsTo()` `User`
-
-#### Access Policy
-
-- Anybody may create an `Order`.
-- An authenticated `User` may view their own `Orders`, i.e., those whose
-  `customer_id` field equals the `User` ID.
-- Anybody may perform any action on an `Order` if they provide its token (UUID).
-
-### OrderItem
-
-An `OrderItem` is essentially a product that is added to a customer's shopping cart.
