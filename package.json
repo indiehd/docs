@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "All documentation relating to the project",
   "main": "",
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^11.0.0",
+    "docsify-cli": "^4.4.1",
     "husky": "^4.3.0"
   },
   "scripts": {
-    "serve": "npx docsify-cli serve .",
+    "serve": "docsify serve .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
