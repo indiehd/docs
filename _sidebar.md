@@ -31,6 +31,7 @@
     * [Style Guide](website-ui/STYLE-GUIDE.md)
 
 * **Velkart**
+  * [Introduction](velkart/README.md)
   * [Domain Objects (Models)](velkart/domain-knowledge/DOMAIN-OBJECTS.md)
   * [Business Rules](velkart/domain-knowledge/BUSINESS-RULES.md)
 
