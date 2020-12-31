@@ -12,11 +12,11 @@ Thanks for your interest and support!
 
 # Contributing
 
-The indieHD documentation site is built using `docsify`. To start a local serve run:
+The indieHD documentation site is built using `docsify`. To start a local server, run:
 
 ```shell
 npm run serve
 # or yarn serve
 ```
 
-By default the site will run on http://localhost:3000.
+By default, the site will run on http://localhost:3000.
